@@ -1,0 +1,25 @@
+@font-face {
+	font-family: "Lato", sans-serif;
+	font-optical-sizing: auto;
+	font-variation-settings:
+		"slnt" 0,
+		"FLAR" 0,
+		"VOLM" 0;
+	src: url("/fonts/Lato-Black.ttf");
+}
+
+@font-face {
+	font-family: "Source Code Pro", monospace;
+	font-optical-sizing: auto;
+	font-variation-settings:
+		"slnt" 0,
+		"FLAR" 0,
+		"VOLM" 0;
+	src: url("/fonts/SourceCodePro-VariableFont_wght.ttf");
+}
+
+* {
+	font-family: "Lato", sans-serif;
+	font-style: normal;
+	font-weight: 400;
+}
