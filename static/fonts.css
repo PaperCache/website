@@ -5,7 +5,17 @@
 		"slnt" 0,
 		"FLAR" 0,
 		"VOLM" 0;
-	src: url("/fonts/Lato-Black.ttf");
+	src:
+		url("/fonts/Lato-Black.ttf"),
+		url("/fonts/Lato-BlackItalic.ttf"),
+		url("/fonts/Lato-Bold.ttf"),
+		url("/fonts/Lato-BoldItalic.ttf"),
+		url("/fonts/Lato-Italic.ttf"),
+		url("/fonts/Lato-Light.ttf"),
+		url("/fonts/Lato-LightItalic.ttf"),
+		url("/fonts/Lato-Regular.ttf"),
+		url("/fonts/Lato-Thin.ttf"),
+		url("/fonts/Lato-ThinItalic.ttf");
 }
 
 @font-face {

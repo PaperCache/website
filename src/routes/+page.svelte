@@ -1,19 +1,18 @@
 <script lang="ts">
+	import Content from "$lib/components/Content.svelte";
 	import Code from "$lib/components/Code.svelte";
 </script>
 
-<section>
-	<h2>Implementing your own eviction policy</h2>
-
-	PaperCache makes it easy to implement your own eviction policies. Here, we describe how to add a custom eviction policy to PaperCache by implementing the <b>LRU</b> eviction policy.
+<Content title="Implementing your own eviction policy">
+	<p>PaperCache makes it easy to implement your own eviction policies. Here, we describe how to add a custom eviction policy to PaperCache by implementing the <b>LRU</b> eviction policy.</p>
 
 	<ol>
-		<li>Add our new policy, <b>Lru</b>, as an enum entry in <b>paper-cache/src/policy.rs</b>, following existing examples.</li>
-		<li>Add file <b>lru_stack.rs</b> to <b>paper-cache/src/worker/policy/policy_stack</b>.</li>
+		<li><p>Add our new policy, <b>Lru</b>, as an enum entry in <b>paper-cache/src/policy.rs</b>, following existing examples.</p></li>
+		<li><p>Add file <b>lru_stack.rs</b> to <b>paper-cache/src/worker/policy/policy_stack</b>.</p></li>
 
 		<li>
-			Create a struct to hold the state of the custom eviction policy. In this case, we will hold all the keys in LRU order in a HashList (i.e., doubly-linked list + hash table for <i>O(1)</i> operations) from the <b>kwik</b> library:
-			<Code lang="rust" code={`
+			<p>Create a struct to hold the state of the custom eviction policy. In this case, we will hold all the keys in LRU order in a HashList (i.e., doubly-linked list + hash table for <i>O(1)</i> operations) from the <b>kwik</b> library:</p>
+			<Code lang="rust" numbers code={`
 				use kwik::collections::HashList;
 				use crate::{HashedKey, NoHasher};
 
@@ -22,11 +21,12 @@
 					stack: HashList<HashedKey, NoHasher>,
 				}
 			`} />
-			We disable hashing in the HashList as the keys are pre-hashed by the cache.
+			<p>We disable hashing in the HashList as the keys are pre-hashed by the cache.</p>
 		</li>
 
-		<li>Implement the <b>PolicyStack</b> trait for our new struct:
-			<Code lang="rust" code={`
+		<li>
+			<p>Implement the <b>PolicyStack</b> trait for our new struct:</p>
+			<Code lang="rust" numbers code={`
 				use crate::{
 					policy::PaperPolicy,
 					object::ObjectSize,
@@ -82,30 +82,26 @@
 					}
 				}
 			`} />
-			Although not strictly necessary, adding tests to ensure your stack is working correctly is a good idea here (you can find how to do this in existing examples).
+			<p>Although not strictly necessary, adding tests to ensure your stack is working correctly is a good idea here (you can find how to do this in existing examples).</p>
 		</li>
 
-		<li>Add our new policy to the <b>init_policy_stack</b> function in <b>paper-cache/src/worker/policy/policy_stack/mod.rs</b>, following existing examples.</li>
+		<li>
+			<p>Add our new policy to the <b>init_policy_stack</b> function in <b>paper-cache/src/worker/policy/policy_stack/mod.rs</b>, following existing examples.</p>
+		</li>
 	</ol>
 
-	Our new policy is now implemented in PaperCache!
-</section>
+	<p>Our new policy is now implemented in PaperCache!</p>
+</Content>
 
 <style lang="scss">
-	section {
-		padding: 0 64px;
-	}
+	ol {
+		padding-left: 16px;
 
-	h2 {
-		color: #222222;
-		font-size: 24px;
-		font-weight: 700;
-		margin-bottom: 16px;
-	}
-
-	li {
-		font-size: 16px;
-		line-height: 20px;
-		margin: 8px 0;
+		li {
+			color: #222222;
+			font-size: 16px;
+			line-height: 20px;
+			margin: 12px 0;
+		}
 	}
 </style>
