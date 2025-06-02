@@ -20,6 +20,7 @@
 	span, a {
 		font-size: inherit;
 		line-height: inherit;
+		max-width: 100%;
 		padding: 0 4px;
 		background-color: #f8f8f8;
 		border: 1px solid #222222;
@@ -27,6 +28,8 @@
 		white-space: nowrap;
 		display: inline-block;
 		vertical-align: bottom;
+		text-overflow: ellipsis;
+		overflow: hidden;
 	}
 
 	span {
