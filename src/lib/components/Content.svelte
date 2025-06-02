@@ -6,7 +6,7 @@
 
 	type Props = {
 		title?: string;
-		children: any;
+		children?: any;
 	};
 </script>
 
@@ -23,12 +23,15 @@
 <style lang="scss">
 	h2 {
 		color: #222222;
-		font-size: 28px;
+		font-size: 1.75em;
 		font-weight: 700;
 		margin-bottom: 16px;
 	}
 
 	div {
+		width: 100%;
+		max-width: 1320px;
+		margin: 0 auto;
 		padding: 0 128px;
 		flex: 1 1 auto;
 

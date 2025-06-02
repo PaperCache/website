@@ -18,6 +18,7 @@
 	<a href="/" class="name">PaperCache</a>
 
 	<nav>
+		<a href="/">Home</a>
 		<a href="/policy">Policies</a>
 		<a href="/client">Clients</a>
 		<a href="/">Paper</a>
@@ -43,8 +44,8 @@
 
 	.name {
 		color: #222222;
-		font-size: 28px;
-		line-height: 32px;
+		font-size: 1.65em;
+		line-height: 1.65em;
 		font-weight: 300;
 		text-decoration: none;
 		transition: font-size 0.15s ease-out, line-height 0.15s ease-out;
@@ -55,8 +56,8 @@
 
 		a {
 			color: #555555;
-			font-size: 16px;
-			line-height: 20px;
+			font-size: 1em;
+			line-height: 1em;
 			margin-left: 24px;
 			transition:
 				font-size 0.15s ease-out,
@@ -70,7 +71,7 @@
 	}
 
 	.spacer {
-		height: 72px;
+		height: 84px;
 		margin-bottom: 32px;
 		flex: 0 0 auto;
 	}
@@ -80,13 +81,13 @@
 		padding-bottom: 12px;
 
 		.name {
-			font-size: 20px;
-			line-height: 24px;
+			font-size: 1.25em;
+			line-height: 1.25em;
 		}
 
 		nav a {
-			font-size: 14px;
-			line-height: 16px;
+			font-size: 0.85em;
+			line-height: 0.85em;
 			margin-left: 16px;
 		}
 	}

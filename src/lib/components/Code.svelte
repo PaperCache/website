@@ -95,16 +95,16 @@
 		span {
 			color: #555555;
 			font-family: "Source Code Pro", monospace !important;
-			font-size: 10px;
-			line-height: 20px;
+			font-size: 0.5em;
+			line-height: 2.25em;
 		}
 	}
 
 	pre {
 		overflow-y: auto;
 		font-family: "Source Code Pro", monospace !important;
-		font-size: 14px;
-		line-height: 20px;
+		font-size: 0.75em;
+		line-height: 1.5em;
 		flex: 1 1 auto;
 
 		*,

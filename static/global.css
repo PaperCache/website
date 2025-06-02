@@ -8,3 +8,17 @@
 a {
 	text-decoration: none;
 }
+
+p, li {
+	color: #222222;
+	font-size: 1.05em;
+	line-height: 1.75em;
+}
+
+ol, ul {
+	padding-left: 16px;
+
+	li {
+		margin: 12px 0;
+	}
+}

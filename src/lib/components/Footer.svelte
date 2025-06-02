@@ -20,7 +20,8 @@
 
 	.copyright {
 		color: #555555;
-		font-size: 14px;
+		font-size: 0.85em;
+		line-height: 1.5em;
 		padding: 4px 16px;
 		margin-left: auto;
 
