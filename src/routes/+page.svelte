@@ -24,13 +24,13 @@
 				yLabel="Miss ratio savings (%)"
 				data={[
 					{ label: "LFU", value: 8.2 },
-					{ label: "FIFO", value: 48 },
+					{ label: "FIFO", value: 48.4 },
 					{ label: "LRU", value: 48.5 },
-					{ label: "LFU", value: 8.2 },
-					{ label: "FIFO", value: 48 },
-					{ label: "LRU", value: 48.5 },
-					{ label: "LFU", value: 8.2 },
-					{ label: "FIFO", value: 48 },
+					{ label: "MRU", value: 32.8 },
+					{ label: "2Q", value: 29.1 },
+					{ label: "S3-FIFO", value: 21.3 },
+					{ label: "CLOCK", value: 48.4 },
+					{ label: "SIEVE", value: 11 },
 				]}
 			/>
 		</div>
