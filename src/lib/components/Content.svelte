@@ -32,19 +32,7 @@
 		width: 100%;
 		max-width: 1320px;
 		margin: 0 auto;
-		padding: 0 128px;
+		padding: 0 16px;
 		flex: 1 1 auto;
-
-		@media screen and (max-width: 1024px) {
-			padding: 0 64px;
-		}
-
-		@media screen and (max-width: 640px) {
-			padding: 0 32px;
-		}
-
-		@media screen and (max-width: 480px) {
-			padding: 0 16px;
-		}
 	}
 </style>

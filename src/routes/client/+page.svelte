@@ -37,7 +37,11 @@
 			}
 
 			client.Set("key", "value", 0);
-			got, _ := client.Get("key")
+			got, err := client.Get("key")
+
+			if err != nil {
+				// handle error
+			}
 		`} />
 	</section>
 
@@ -49,6 +53,8 @@
 
 			paper_set(client, "key", "value", 0);
 			paper_str_response* got = paper_get(client, "key");
+
+			paper_str_response_free(got);
 		`} />
 	</section>
 

@@ -23,6 +23,7 @@
 	},
 	"dependencies": {
 		"@sveltejs/adapter-static": "^3.0.8",
+		"chart.js": "^4.4.9",
 		"highlight.js": "^11.11.1"
 	}
 }
