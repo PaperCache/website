@@ -98,7 +98,7 @@
 		width: 100%;
 		margin-top: 0;
 		padding: 16px;
-		background: linear-gradient(0deg, color.adjust(app.$theme-color, $lightness: 30%), app.$theme-color);
+		background: linear-gradient(0deg, color.adjust(app.$theme-color, $lightness: 15%), app.$theme-color);
 		text-align: center;
 		overflow: hidden;
 		position: relative;
