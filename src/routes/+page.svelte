@@ -1,5 +1,7 @@
 <script lang="ts">
 	import Content from "$lib/components/Content.svelte";
+	import Tag from "$lib/components/Tag.svelte";
+	import Command from "$lib/components/Command.svelte";
 	import BarChart from "$lib/components/chart/BarChart.svelte";
 	import LogoSvg from "$lib/svgs/LogoSvg.svelte";
 	import policiesData from "$lib/data/policies.json";
@@ -17,7 +19,7 @@
 </section>
 
 <Content>
-	<section>
+	<section class="vertical-split">
 		<div class="content">
 			<h2>Savings over static eviction policy caches</h2>
 			<p>PaperCache switches between any eviction policy, improving cache performance automatically.</p>
@@ -30,6 +32,32 @@
 			/>
 		</div>
 	</section>
+
+	<section>
+		<h2>Installation</h2>
+
+		<p>To try PaperCache locally, install the <Tag href="#">paper-server</Tag> Rust crate, using the following instructions:</p>
+
+		<ol>
+			<li>Download and install <Tag href="#">Rust</Tag>.</li>
+
+			<li>
+				Install <Tag href="#">paper-server</Tag> using the command:
+
+				<Command command={`
+					cargo install paper-server
+				`} />
+			</li>
+
+			<li>
+				Install <Tag href="#">paper-cli</Tag> using the command:
+
+				<Command command={`
+					cargo install paper-cli
+				`} />
+			</li>
+		</ol>
+	</section>
 </Content>
 
 <style lang="scss">
@@ -41,7 +69,6 @@
 
 	section {
 		margin-top: 64px;
-		display: flex;
 
 		@media screen and (max-width: app.$mobile-width) {
 			margin-top: 32px;
@@ -49,9 +76,6 @@
 		}
 
 		.content {
-			height: 300px;
-			width: 50%;
-
 			@media screen and (max-width: app.$mobile-width) {
 				height: auto;
 				width: 100%;
@@ -59,8 +83,6 @@
 		}
 
 		.chart {
-			width: 50%;
-
 			@media screen and (max-width: app.$mobile-width) {
 				width: 100%;
 				margin-top: 16px;
@@ -91,6 +113,19 @@
 				line-height: 1em;
 			}
 		}
+
+		&.vertical-split {
+			display: flex;
+
+			.content {
+				min-height: 300px;
+				width: 50%;
+			}
+
+			.chart {
+				width: 50%;
+			}
+		}
 	}
 
 	.splash {
@@ -102,6 +137,7 @@
 		text-align: center;
 		overflow: hidden;
 		position: relative;
+		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
