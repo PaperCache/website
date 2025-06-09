@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Content from "$lib/components/Content.svelte";
 	import BarChart from "$lib/components/chart/BarChart.svelte";
+	import LogoSvg from "$lib/svgs/LogoSvg.svelte";
 	import policiesData from "$lib/data/policies.json";
 </script>
 
@@ -8,8 +9,10 @@
 	<h1>PaperCache</h1>
 	<h2>An in-memory cache with dynamic eviction policies.</h2>
 
-	{#each { length: 0 } as _}
-		<div class="bubble"></div>
+	{#each { length: 10 } as _}
+		<div class="bubble">
+			<LogoSvg />
+		</div>
 	{/each}
 </section>
 
@@ -17,12 +20,12 @@
 	<section>
 		<div class="content">
 			<h2>Savings over static eviction policy caches</h2>
-			<p>PaperCache</p>
+			<p>PaperCache switches between any eviction policy, improving cache performance automatically.</p>
 		</div>
 
 		<div class="chart">
 			<BarChart
-				yLabel="Miss ratio savings (%)"
+				yLabel="Savings (%)"
 				data={policiesData}
 			/>
 		</div>
@@ -34,32 +37,59 @@
 	@use "$lib/styles/app";
 
 	$splash-height: 400px;
-	$splash-height-mobile: 300px;
+	$splash-height-mobile: 250px;
 
 	section {
 		margin-top: 64px;
 		display: flex;
 
+		@media screen and (max-width: app.$mobile-width) {
+			margin-top: 32px;
+			flex-direction: column;
+		}
+
 		.content {
 			height: 300px;
 			width: 50%;
+
+			@media screen and (max-width: app.$mobile-width) {
+				height: auto;
+				width: 100%;
+			}
 		}
 
 		.chart {
 			width: 50%;
+
+			@media screen and (max-width: app.$mobile-width) {
+				width: 100%;
+				margin-top: 16px;
+			}
 		}
 
 		h2 {
 			color: #222222;
-			font-size: 24px;
+			font-size: 1.7em;
+			line-height: 1.7em;
 			font-weight: 700;
 			margin-bottom: 8px;
+
+			@media screen and (max-width: app.$mobile-width) {
+				font-size: 1.15em;
+				line-height: 1.15em;
+				text-align: center;
+			}
 		}
 
 		p {
 			color: #222222;
-			font-size: 16px;
-			line-height: 22px;
+			font-size: 1.15em;
+			line-height: 1.15em;
+
+			@media screen and (max-width: app.$mobile-width) {
+				font-size: 1em;
+				line-height: 1em;
+			}
 		}
 	}
 
@@ -82,23 +112,27 @@
 
 		h1 {
 			color: #ffffff;
-			font-size: 72px;
+			font-size: 5em;
 			font-weight: 700;
 
 			@media screen and (max-width: app.$mobile-width) {
-				font-size: 50px;
+				font-size: 3em;
 			}
 		}
 
 		h2 {
 			color: #ffffff;
-			font-size: 24px;
+			font-size: 1.4em;
 			font-weight: 300;
 			margin-top: 4px;
 
 			@media screen and (max-width: app.$mobile-width) {
-				font-size: 20px;
+				font-size: 0.8em;
 			}
+		}
+
+		h1, h2 {
+			z-index: 1;
 		}
 
 		.bubble {
@@ -110,6 +144,7 @@
 			position: absolute;
 			bottom: -150px;
 			animation: bubble-float 20s linear infinite;
+			z-index: 0;
 
 			&:nth-child(1) {
 				height: 80px;
@@ -190,7 +225,7 @@
 			:global(svg) {
 				height: 100%;
 				width: 100%;
-				fill: rgba(255, 255, 255, 0.25);
+				opacity: 0.5;
 			}
 
 			@keyframes bubble-float {

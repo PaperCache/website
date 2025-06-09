@@ -1,6 +1,7 @@
 <script lang="ts">
     import { onMount } from "svelte";
     import { base } from "$app/paths";
+    import LogoSvg from "$lib/svgs/LogoSvg.svelte";
     import MenuSvg from "$lib/svgs/MenuSvg.svelte";
 
     const MINIMIZED_THRESHOLD: number = 0;
@@ -29,7 +30,10 @@
 </script>
 
 <header class={minimized ? "minimized" : ""}>
-	<a href="{base}/" class="name">PaperCache</a>
+	<a href="{base}/" class="name">
+		<LogoSvg />
+		PaperCache
+	</a>
 
 	<button onclick={toggleMenu}>
 		<MenuSvg />
@@ -76,11 +80,23 @@
 		line-height: 1.65em;
 		font-weight: 300;
 		text-decoration: none;
+		display: flex;
 		transition: font-size 0.15s ease-out, line-height 0.15s ease-out;
 
 		@media screen and (max-width: app.$mobile-width) {
 			font-size: 1.25em;
 			line-height: 1.25em;
+		}
+
+		:global(svg) {
+			height: 1.65em;
+			width: 1.65em;
+			margin-right: 8px;
+
+			@media screen and (max-width: app.$mobile-width) {
+				height: 1.25em;
+				width: 1.25em;
+			}
 		}
 	}
 
@@ -167,6 +183,11 @@
 		.name {
 			font-size: 1.25em;
 			line-height: 1.25em;
+
+			:global(svg) {
+				height: 1.25em;
+				width: 1.25em;
+			}
 		}
 
 		@media screen and (min-width: (app.$mobile-width + 1px)) {
