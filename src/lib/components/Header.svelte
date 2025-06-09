@@ -3,11 +3,13 @@
     import { base } from "$app/paths";
     import MenuSvg from "$lib/svgs/MenuSvg.svelte";
 
+    const MINIMIZED_THRESHOLD: number = 0;
+
     let minimized: boolean = $state(false);
     let menuOpen: boolean = $state(false);
 
 	function handleScroll() {
-		minimized = window.scrollY >= 128;
+		minimized = window.scrollY > MINIMIZED_THRESHOLD;
 	}
 
 	function toggleMenu() {
@@ -19,7 +21,7 @@
 	}
 
 	onMount(() => {
-		minimized = window.scrollY >= 128;
+		minimized = window.scrollY > MINIMIZED_THRESHOLD;
 
 		window.addEventListener("scroll", handleScroll);
 		return () => window.removeEventListener("scroll", handleScroll);
@@ -55,13 +57,12 @@
 		width: 100%;
 		padding: 20px 64px;
 		background-color: #ffffff;
-		box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.15);
 		display: flex;
 		align-items: center;
 		position: fixed;
 		top: 0;
 		left: 0;
-		transition: padding 0.15s ease-out;
+		transition: padding 0.15s ease-out, box-shadow 0.15s ease-out;
 		z-index: 9999;
 
 		@media screen and (max-width: app.$mobile-width) {
@@ -78,8 +79,8 @@
 		transition: font-size 0.15s ease-out, line-height 0.15s ease-out;
 
 		@media screen and (max-width: app.$mobile-width) {
-			font-size: 1.5em;
-			line-height: 1.5em;
+			font-size: 1.25em;
+			line-height: 1.25em;
 		}
 	}
 
@@ -137,8 +138,11 @@
 
 	.spacer {
 		height: 84px;
-		margin-bottom: 32px;
 		flex: 0 0 auto;
+
+		@media screen and (max-width: app.$mobile-width) {
+			height: 52px;
+		}
 	}
 
 	.shade {
@@ -153,6 +157,12 @@
 	.minimized {
 		padding-top: 12px;
 		padding-bottom: 12px;
+		box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.15);
+
+		@media screen and (max-width: app.$mobile-width) {
+			padding-top: 8px;
+			padding-bottom: 8px;
+		}
 
 		.name {
 			font-size: 1.25em;

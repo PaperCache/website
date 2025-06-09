@@ -4,6 +4,9 @@
 		children,
 	}: Props = $props();
 
+	const target = href?.startsWith("/") || href?.startsWith("#")
+		? "_self" : "_blank";
+
 	type Props = {
 		href?: string;
 		children: any;
@@ -11,7 +14,7 @@
 </script>
 
 {#if href}
-	<a {href} target="_blank">{@render children()}</a>
+	<a {href} {target}>{@render children()}</a>
 {:else}
 	<span>{@render children()}</span>
 {/if}

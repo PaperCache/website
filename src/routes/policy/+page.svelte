@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Content from "$lib/components/Content.svelte";
+	import Tag from "$lib/components/Tag.svelte";
 
 	const POLICIES = [
 		"LFU",
@@ -23,7 +24,7 @@
 		{/each}
 	</ul>
 
-	<p>If you would like to add an eviction policy not listed here to PaperCache, follow <a href="/policy/custom">this</a> guide.</p>
+	<p>If you would like to add an eviction policy not listed here to PaperCache, follow <Tag href="/policy/custom">this</Tag> guide.</p>
 </Content>
 
 <style lang="scss">

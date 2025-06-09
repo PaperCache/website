@@ -21,6 +21,8 @@
 </div>
 
 <style lang="scss">
+	@use "$lib/styles/app";
+
 	h2 {
 		color: #222222;
 		font-size: 1.75em;
@@ -32,7 +34,11 @@
 		width: 100%;
 		max-width: 1320px;
 		margin: 0 auto;
-		padding: 0 16px;
+		padding: 0 32px;
 		flex: 1 1 auto;
+
+		@media screen and (max-width: app.$mobile-width) {
+			padding: 0 16px;
+		}
 	}
 </style>

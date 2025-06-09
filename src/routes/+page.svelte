@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Content from "$lib/components/Content.svelte";
 	import BarChart from "$lib/components/chart/BarChart.svelte";
+	import policiesData from "$lib/data/policies.json";
 </script>
 
 <section class="splash">
@@ -22,16 +23,7 @@
 		<div class="chart">
 			<BarChart
 				yLabel="Miss ratio savings (%)"
-				data={[
-					{ label: "LFU", value: 8.2 },
-					{ label: "FIFO", value: 48.4 },
-					{ label: "LRU", value: 48.5 },
-					{ label: "MRU", value: 32.8 },
-					{ label: "2Q", value: 29.1 },
-					{ label: "S3-FIFO", value: 21.3 },
-					{ label: "CLOCK", value: 48.4 },
-					{ label: "SIEVE", value: 11 },
-				]}
+				data={policiesData}
 			/>
 		</div>
 	</section>
@@ -193,6 +185,12 @@
 				left: 85%;
 				animation-delay: 0s;
 				animation-duration: 10s;
+			}
+
+			:global(svg) {
+				height: 100%;
+				width: 100%;
+				fill: rgba(255, 255, 255, 0.25);
 			}
 
 			@keyframes bubble-float {
