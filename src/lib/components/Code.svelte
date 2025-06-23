@@ -130,7 +130,8 @@
 		:global(.hljs-meta),
 		:global(.hljs-params),
 		:global(.hljs-string),
-		:global(.hljs-literal)
+		:global(.hljs-literal),
+		:global(.hljs-property)
  		{
 			font-family: inherit !important;
 		}
