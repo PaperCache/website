@@ -8,8 +8,10 @@
 	import cpp from "highlight.js/lib/languages/cpp";
 	import python from "highlight.js/lib/languages/python";
 	import java from "highlight.js/lib/languages/java";
+	import csharp from "highlight.js/lib/languages/csharp";
 	import kotlin from "highlight.js/lib/languages/kotlin";
 	import php from "highlight.js/lib/languages/php";
+	import ruby from "highlight.js/lib/languages/ruby";
 
 	import "highlight.js/styles/vs.min.css";
 
@@ -20,8 +22,10 @@
 	hljs.registerLanguage("cpp", cpp);
 	hljs.registerLanguage("python", python);
 	hljs.registerLanguage("java", java);
+	hljs.registerLanguage("csharp", csharp);
 	hljs.registerLanguage("kotlin", kotlin);
 	hljs.registerLanguage("php", php);
+	hljs.registerLanguage("ruby", ruby);
 	hljs.registerLanguage("zig", javascript);
 
 	const {
@@ -65,7 +69,7 @@
 	}
 
 	type Props = {
-		lang: "rust" | "javascript" | "go" | "c" | "cpp" | "python" | "java" | "kotlin" | "php" | "zig";
+		lang: "rust" | "javascript" | "go" | "c" | "cpp" | "python" | "java" | "csharp" | "kotlin" | "php" | "ruby" | "zig";
 		code: string;
 		numbers?: boolean;
 	};

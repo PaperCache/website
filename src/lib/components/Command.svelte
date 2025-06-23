@@ -9,12 +9,17 @@
 	let width: number | undefined = $state();
 
 	onMount(() => {
+		if (!element) return;
+
 		const canvas = document.createElement("canvas");
 		const ctx = canvas.getContext("2d");
 		if (!ctx) return;
 
-		ctx.font = "1em 'Source Code Pro', monospace";
-		width = ctx?.measureText(command).width + 16;
+		const computed = window.getComputedStyle(element);
+		const padding = parseFloat(computed.paddingLeft) + parseFloat(computed.paddingRight);
+
+		ctx.font = computed.font;
+		width = Math.ceil(ctx?.measureText(command.trim()).width) + padding;
 	});
 
 	type Props = {
@@ -33,6 +38,7 @@
 
 <style lang="scss">
 	input[type="text"] {
+		width: 16px;
 		border: 1px solid #222222;
 		padding: 8px;
 		background-color: #222222;
@@ -40,5 +46,6 @@
 		font-size: 0.8em;
 		line-height: 0.8em;
 		font-family: "Source Code Pro", monospace !important;
+		transition: width 0.25s ease-out;
 	}
 </style>

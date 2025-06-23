@@ -30,7 +30,7 @@
 		border-radius: 4px;
 		white-space: nowrap;
 		display: inline-block;
-		vertical-align: bottom;
+		vertical-align: top;
 		text-overflow: ellipsis;
 		overflow: hidden;
 	}

@@ -99,10 +99,21 @@
 	</section>
 
 	<section>
+		{@render label("C#", "/")}
+
+		<Code lang="csharp" numbers code={`
+			var client = new PaperClient("paper://127.0.0.1:3145");
+
+			client.set("key", "value");
+			var got = client.get("key");
+		`} />
+	</section>
+
+	<section>
 		{@render label("Kotlin", "/")}
 
 		<Code lang="kotlin" numbers code={`
-			var client = new PaperClient("paper://127.0.0.1:3145");
+			var client = PaperClient("paper://127.0.0.1:3145");
 
 			client.set("key", "value");
 			var got = client.get("key");
@@ -117,6 +128,17 @@
 
 			$client->set("key", "value");
 			$got = $client->get("key");
+		`} />
+	</section>
+
+	<section>
+		{@render label("Ruby", "/")}
+
+		<Code lang="ruby" numbers code={`
+			client = PaperClient::Client.new("paper://127.0.0.1:3145")
+
+			client.set("key", "value")
+			got = client.get("key")
 		`} />
 	</section>
 

@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { base } from "$app/paths";
 	import Content from "$lib/components/Content.svelte";
 	import Tag from "$lib/components/Tag.svelte";
 	import Command from "$lib/components/Command.svelte";
@@ -34,7 +35,7 @@
 	</section>
 
 	<section>
-		<h2>Installation</h2>
+		<h2>Getting started</h2>
 
 		<p>To try PaperCache locally, install the <Tag href="#">paper-server</Tag> Rust crate, using the following instructions:</p>
 
@@ -49,11 +50,21 @@
 				`} />
 			</li>
 
+			<li>Install a PaperCache <Tag href="{base}/client">client</Tag>.</li>
+
 			<li>
-				Install <Tag href="#">paper-cli</Tag> using the command:
+				(Optional) Install <Tag href="#">paper-cli</Tag> using the command:
 
 				<Command command={`
 					cargo install paper-cli
+				`} />
+			</li>
+
+			<li>
+				(Optional) Install <Tag href="#">paper-benchmark</Tag> using the command:
+
+				<Command command={`
+					cargo install paper-benchmark
 				`} />
 			</li>
 		</ol>
@@ -103,10 +114,9 @@
 			}
 		}
 
-		p {
+		p, li {
 			color: #222222;
 			font-size: 1.15em;
-			line-height: 1.15em;
 
 			@media screen and (max-width: app.$mobile-width) {
 				font-size: 1em;
@@ -114,16 +124,29 @@
 			}
 		}
 
+		li {
+			margin: 12px 0;
+		}
+
 		&.vertical-split {
 			display: flex;
 
 			.content {
-				min-height: 300px;
 				width: 50%;
+
+				@media screen and (max-width: app.$mobile-width) {
+					width: 100%;
+				}
 			}
 
 			.chart {
+				min-height: 300px;
 				width: 50%;
+
+				@media screen and (max-width: app.$mobile-width) {
+					min-height: auto;
+					width: 100%;
+				}
 			}
 		}
 	}
