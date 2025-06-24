@@ -8,10 +8,20 @@ const config = {
 	preprocess: vitePreprocess(),
 
 	kit: {
-		adapter: adapter(),
+		adapter: adapter({
+			fallback: "index.html",
+			pages: "build",
+			assets: "build",
+		}),
+
 		paths: {
-			base: isProd ? "/website" : "",
+			// base: isProd ? "/website" : "",
+			base: isProd ? "/home/kia/git/paper/website/build" : "",
 		},
+
+		prerender: {
+			entries: [],
+		}
 	}
 };
 

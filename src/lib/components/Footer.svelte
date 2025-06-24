@@ -19,7 +19,6 @@
 
 	footer {
 		width: 100%;
-		margin-top: 32px;
 		padding: 8px 16px;
 		border-top: 1px solid #dddddd;
 		display: flex;

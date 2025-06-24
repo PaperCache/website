@@ -45,8 +45,7 @@
 
 	<nav class={menuOpen ? "open" : ""}>
 		<a href="{base}/">Home</a>
-		<a href="{base}/policy">Policies</a>
-		<a href="{base}/client">Clients</a>
+		<a href="{base}/guide">Guide</a>
 		<a href="{base}/">Paper</a>
 		<a href="{base}/">GitHub</a>
 	</nav>

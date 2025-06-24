@@ -33,7 +33,7 @@
 	div {
 		width: 100%;
 		max-width: 1320px;
-		margin: 0 auto;
+		margin: 32px auto;
 		padding: 0 32px;
 		flex: 1 1 auto;
 
