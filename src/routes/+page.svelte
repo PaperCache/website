@@ -8,6 +8,10 @@
 	import policiesData from "$lib/data/policies.json";
 </script>
 
+<svelte:head>
+	<title>PaperCache</title>
+</svelte:head>
+
 <section class="splash">
 	<h1>PaperCache</h1>
 	<h2>An in-memory cache with dynamic eviction policies.</h2>
@@ -305,5 +309,9 @@
 				}
 			}
 		}
+	}
+
+	:global(main) {
+		height: auto;
 	}
 </style>

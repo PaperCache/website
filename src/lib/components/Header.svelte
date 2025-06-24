@@ -1,16 +1,21 @@
 <script lang="ts">
     import { onMount } from "svelte";
+    import { page } from "$app/state";
     import { base } from "$app/paths";
     import LogoSvg from "$lib/svgs/LogoSvg.svelte";
     import MenuSvg from "$lib/svgs/MenuSvg.svelte";
 
-    const MINIMIZED_THRESHOLD: number = 0;
+    const {
+    	minimized,
+    }: Props = $props();
 
-    let minimized: boolean = $state(false);
+    const SCROLLING_THRESHOLD: number = 0;
+
+    let scrolling: boolean = $state(false);
     let menuOpen: boolean = $state(false);
 
 	function handleScroll() {
-		minimized = window.scrollY > MINIMIZED_THRESHOLD;
+		scrolling = window.scrollY > SCROLLING_THRESHOLD;
 	}
 
 	function toggleMenu() {
@@ -22,14 +27,18 @@
 	}
 
 	onMount(() => {
-		minimized = window.scrollY > MINIMIZED_THRESHOLD;
+		scrolling = window.scrollY > SCROLLING_THRESHOLD;
 
 		window.addEventListener("scroll", handleScroll);
 		return () => window.removeEventListener("scroll", handleScroll);
 	});
+
+	type Props = {
+		minimized?: boolean;
+	};
 </script>
 
-<header class={minimized ? "minimized" : ""}>
+<header class={minimized || scrolling ? "minimized" : ""}>
 	<a href="{base}/" class="name">
 		<LogoSvg />
 		PaperCache
@@ -40,18 +49,23 @@
 	</button>
 
 	{#if menuOpen}
-		<div class="shade" onclick={closeMenu}></div>
+		<div class="shade" onclick={closeMenu} aria-hidden="true"></div>
 	{/if}
 
 	<nav class={menuOpen ? "open" : ""}>
-		<a href="{base}/">Home</a>
-		<a href="{base}/guide">Guide</a>
-		<a href="{base}/">Paper</a>
-		<a href="{base}/">GitHub</a>
+		{@render navItem(`${base}/`, "Home")}
+		{@render navItem(`${base}/guide`, "Guide")}
+		{@render navItem(`${base}/`, "Paper")}
+		{@render navItem(`${base}/`, "GitHub")}
 	</nav>
 </header>
 
-<div class="spacer"></div>
+{#snippet navItem(href: string, text: string)}
+	{@const isCurrent = page.route.id === href}
+	<a {href} class={isCurrent ? "current": ""}>{text}</a>
+{/snippet}
+
+<div class={[minimized ? "small" : "", "spacer"]}></div>
 
 <style lang="scss">
 	@use "$lib/styles/app";
@@ -135,6 +149,10 @@
 				text-decoration: underline;
 			}
 
+			&.current {
+				font-weight: 700;
+			}
+
 			@media screen and (max-width: app.$mobile-width) {
 				margin: 0;
 				padding: 16px 32px;
@@ -156,6 +174,10 @@
 		flex: 0 0 auto;
 
 		@media screen and (max-width: app.$mobile-width) {
+			height: 52px;
+		}
+
+		&.small {
 			height: 52px;
 		}
 	}

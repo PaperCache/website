@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { page } from "$app/state";
 	import Header from "$lib/components/Header.svelte";
 	import Footer from "$lib/components/Footer.svelte";
 
@@ -10,7 +11,7 @@
 </svelte:head>
 
 <main>
-	<Header />
+	<Header minimized={page.route.id !== "/"} />
 	{@render children()}
 	<Footer />
 </main>

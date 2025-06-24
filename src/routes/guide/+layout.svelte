@@ -56,6 +56,10 @@
 	};
 </script>
 
+<svelte:head>
+	<title>{moduleTitle || "PaperCache"}</title>
+</svelte:head>
+
 <section>
 	<nav>
 		<ul>
@@ -89,8 +93,10 @@
 
 <style lang="scss">
 	nav {
-		width: 340px;
-		padding: 0 16px 16px;
+		width: 20%;
+		min-width: 280px;
+		max-width: 340px;
+		padding: 0 24px 32px;
 		border-right: 1px solid #dddddd;
 		flex: 0 0 auto;
 		overflow-y: auto;
@@ -152,5 +158,10 @@
 	section {
 		flex: 1 1 auto;
 		display: flex;
+		overflow: hidden;
+	}
+
+	:global(main) {
+		height: 100vh;
 	}
 </style>
