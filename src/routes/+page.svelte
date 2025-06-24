@@ -310,8 +310,4 @@
 			}
 		}
 	}
-
-	:global(main) {
-		height: auto;
-	}
 </style>

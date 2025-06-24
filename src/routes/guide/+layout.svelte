@@ -1,8 +1,10 @@
 <script lang="ts">
     import { base } from "$app/paths";
     import { page } from "$app/state";
+    import CircleArrowSvg from "$lib/svgs/CircleArrowSvg.svelte";
 
 	const { children } = $props();
+	let mobileNavOpen: boolean = $state(false);
 
 	const GUIDE_SECTIONS: GuideSection[] = [
 		{
@@ -44,6 +46,14 @@
 		};
 	}
 
+	function toggleMobileNav() {
+		mobileNavOpen = !mobileNavOpen;
+	}
+
+	function closeMobileNav() {
+		mobileNavOpen = false;
+	}
+
 	type GuideSection = {
 		title: string;
 		modules: GuideModule[];
@@ -62,7 +72,12 @@
 
 <section>
 	<nav>
-		<ul>
+		<button class={mobileNavOpen ? "" : "closed"} onclick={toggleMobileNav}>
+			<span>{moduleTitle || "On this page"}</span>
+			<CircleArrowSvg />
+		</button>
+
+		<ul class={mobileNavOpen ? "" : "closed"}>
 			{#each GUIDE_SECTIONS as guideSection}
 				<li>{guideSection.title}</li>
 				<ul>
@@ -87,19 +102,99 @@
 	{@const isCurrent = page.route.id?.endsWith(slug)}
 
 	<li class={isCurrent ? "current": ""}>
-		<a href="{base}/guide/{slug}">{title}</a>
+		<a href="{base}/guide/{slug}" onclick={closeMobileNav}>{title}</a>
 	</li>
 {/snippet}
 
 <style lang="scss">
+	@use "$lib/styles/app";
+
+	section {
+		flex: 1 1 auto;
+		display: flex;
+		overflow: hidden;
+
+		@media screen and (max-width: app.$mobile-width) {
+			flex-direction: column;
+		}
+	}
+
 	nav {
 		width: 20%;
 		min-width: 280px;
 		max-width: 340px;
 		padding: 0 24px 32px;
+		background-color: #f8f8f8;
 		border-right: 1px solid #dddddd;
 		flex: 0 0 auto;
 		overflow-y: auto;
+
+		@media screen and (max-width: app.$mobile-width) {
+			width: 100%;
+			min-width: auto;
+			max-width: none;
+			margin-top: 16px;
+			padding: 0 16px;
+			border-right: 0;
+
+			button {
+				width: 100%;
+				text-align: left;
+				padding: 8px 12px;
+				background-color: #ffffff;
+				border: 1px solid #dddddd;
+				border-top-right-radius: 4px;
+				border-top-left-radius: 4px;
+				display: flex !important;
+				align-items: center;
+
+				span {
+					color: #222222;
+					font-size: 1.15em;
+					line-height: 1.15em;
+					font-weight: 700;
+					flex: 1 1 auto;
+				}
+
+				:global(svg) {
+					height: 1.35em;
+					width: 1.35em;
+					margin-left: 8px;
+					flex: 0 0 auto;
+					transition: transform 0.15s ease-out;
+				}
+
+				&.closed {
+					border-radius: 4px;
+
+					:global(svg) {
+						transform: rotate(180deg);
+					}
+				}
+			}
+
+			> ul {
+				padding: 8px !important;
+				border-right: 1px solid #dddddd;
+				border-bottom: 1px solid #dddddd;
+				border-left: 1px solid #dddddd;
+				border-bottom-right-radius: 4px;
+				border-bottom-left-radius: 4px;
+				transition: height 0.25s ease-out;
+
+				&.closed {
+					display: none;
+				}
+
+				li:first-of-type {
+					margin-top: 8px;
+				}
+			}
+		}
+
+		button {
+			display: none;
+		}
 
 		ul {
 			padding-left: 0;
@@ -144,6 +239,10 @@
 		flex: 1 1 auto;
 		overflow-y: auto;
 
+		@media screen and (max-width: app.$mobile-width) {
+			padding: 16px;
+		}
+
 		h2 {
 			color: #222222;
 			font-size: 1.5em;
@@ -153,15 +252,5 @@
 			padding-bottom: 8px;
 			border-bottom: 1px solid #dddddd;
 		}
-	}
-
-	section {
-		flex: 1 1 auto;
-		display: flex;
-		overflow: hidden;
-	}
-
-	:global(main) {
-		height: 100vh;
 	}
 </style>

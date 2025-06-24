@@ -11,6 +11,7 @@
 
     const SCROLLING_THRESHOLD: number = 0;
 
+    let spacerHeight: number = $state(84);
     let scrolling: boolean = $state(false);
     let menuOpen: boolean = $state(false);
 
@@ -38,7 +39,10 @@
 	};
 </script>
 
-<header class={minimized || scrolling ? "minimized" : ""}>
+<header
+	class={minimized || scrolling ? "minimized" : ""}
+	bind:clientHeight={spacerHeight}
+>
 	<a href="{base}/" class="name">
 		<LogoSvg />
 		PaperCache
@@ -65,7 +69,7 @@
 	<a {href} class={isCurrent ? "current": ""}>{text}</a>
 {/snippet}
 
-<div class={[minimized ? "small" : "", "spacer"]}></div>
+<div class="spacer" style:height={`${spacerHeight}px`}></div>
 
 <style lang="scss">
 	@use "$lib/styles/app";
@@ -170,16 +174,7 @@
 	}
 
 	.spacer {
-		height: 84px;
 		flex: 0 0 auto;
-
-		@media screen and (max-width: app.$mobile-width) {
-			height: 52px;
-		}
-
-		&.small {
-			height: 52px;
-		}
 	}
 
 	.shade {
