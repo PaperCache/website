@@ -11,7 +11,11 @@
 </svelte:head>
 
 <main class={page.route.id?.startsWith("/guide") ? "fixed-height": ""}>
-	<Header minimized={page.route.id !== "/"} />
+	<Header
+		minimized={page.route.id !== "/"}
+		fixed={page.route.id === "/"}
+	/>
+
 	{@render children()}
 	<Footer />
 </main>

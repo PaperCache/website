@@ -8,6 +8,7 @@
 
     const {
     	minimized,
+    	fixed,
     }: Props = $props();
 
     const SCROLLING_THRESHOLD: number = 0;
@@ -37,12 +38,14 @@
 
 	type Props = {
 		minimized?: boolean;
+		fixed?: boolean;
 	};
 </script>
 
 <header
 	class={minimized || scrolling ? "minimized" : ""}
 	bind:clientHeight={spacerHeight}
+	style:position={fixed ? "fixed" : ""}
 >
 	<a href="{base}/" class="name">
 		<LogoSvg />
@@ -79,7 +82,9 @@
 	</a>
 {/snippet}
 
-<div class="spacer" style:height={`${spacerHeight}px`}></div>
+{#if fixed}
+	<div class="spacer" style:height={`${spacerHeight}px`}></div>
+{/if}
 
 <style lang="scss">
 	@use "$lib/styles/app";
@@ -90,7 +95,6 @@
 		background-color: #ffffff;
 		display: flex;
 		align-items: center;
-		position: fixed;
 		top: 0;
 		left: 0;
 		transition: padding 0.15s ease-out, box-shadow 0.15s ease-out;
