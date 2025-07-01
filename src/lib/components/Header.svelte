@@ -4,6 +4,7 @@
     import { base } from "$app/paths";
     import LogoSvg from "$lib/svgs/LogoSvg.svelte";
     import MenuSvg from "$lib/svgs/MenuSvg.svelte";
+    import ExternalSvg from "$lib/svgs/ExternalSvg.svelte";
 
     const {
     	minimized,
@@ -59,14 +60,23 @@
 	<nav class={menuOpen ? "open" : ""}>
 		{@render navItem(`${base}/`, "Home")}
 		{@render navItem(`${base}/guide`, "Guide")}
-		{@render navItem(`${base}/`, "Paper")}
+		{@render navItem(`https://dl.acm.org/doi/abs/10.1145/3736548.3737836`, "Paper")}
 		{@render navItem(`${base}/`, "GitHub")}
 	</nav>
 </header>
 
 {#snippet navItem(href: string, text: string)}
 	{@const isCurrent = page.route.id === href}
-	<a {href} class={isCurrent ? "current": ""}>{text}</a>
+	{@const isExternal = href.startsWith("http")}
+	{@const target = isExternal ? "_blank" : "_self"}
+
+	<a {href} class={isCurrent ? "current": ""} {target}>
+		{text}
+
+		{#if isExternal}
+			<ExternalSvg />
+		{/if}
+	</a>
 {/snippet}
 
 <div class="spacer" style:height={`${spacerHeight}px`}></div>
@@ -119,6 +129,7 @@
 
 	nav {
 		margin-left: auto;
+		display: flex;
 
 		&.open {
 			left: 20%;
@@ -144,6 +155,8 @@
 			font-size: 1em;
 			line-height: 1em;
 			margin-left: 24px;
+			display: flex;
+			align-items: center;
 			transition:
 				font-size 0.15s ease-out,
 				line-height 0.15s ease-out,
@@ -160,6 +173,13 @@
 			@media screen and (max-width: app.$mobile-width) {
 				margin: 0;
 				padding: 16px 32px;
+			}
+
+			:global(svg) {
+				height: 1em;
+				width: 1em;
+				margin-left: 4px;
+				fill: #555555;
 			}
 		}
 	}

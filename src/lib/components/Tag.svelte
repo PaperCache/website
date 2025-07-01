@@ -1,4 +1,6 @@
 <script lang="ts">
+    import ExternalSvg from "$lib/svgs/ExternalSvg.svelte";
+
 	const {
 		href,
 		children,
@@ -14,7 +16,15 @@
 </script>
 
 {#if href}
-	<a {href} {target}>{@render children()}</a>
+	{@const isExternal = href.startsWith("http")}
+
+	<a {href} {target}>
+		{@render children()}
+
+		{#if isExternal}
+			<ExternalSvg />
+		{/if}
+	</a>
 {:else}
 	<span>{@render children()}</span>
 {/if}
@@ -44,6 +54,13 @@
 
 		&:hover {
 			border-color: #0065f8;
+		}
+
+		:global(svg) {
+			height: inherit;
+			width: inherit;
+			fill: #0065f8;
+			vertical-align: sub;
 		}
 	}
 </style>

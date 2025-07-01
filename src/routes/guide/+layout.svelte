@@ -11,7 +11,7 @@
 			title: "Getting started",
 			modules: [
 				initModule("getting-started/installation", "Installation"),
-				initModule("getting-started/configuration", "Basic configuration"),
+				initModule("getting-started/configuration", "Configuration"),
 			],
 		},
 
@@ -19,7 +19,7 @@
 			title: "Usage",
 			modules: [
 				initModule("usage/clients", "Clients"),
-				initModule("usage/configuration", "Advanced configuration"),
+				initModule("usage/wire", "Wire protocol"),
 			],
 		},
 
