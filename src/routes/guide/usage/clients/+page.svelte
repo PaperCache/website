@@ -1,11 +1,15 @@
 <script lang="ts">
 	import Code from "$lib/components/Code.svelte";
+	import ExternalSvg from "$lib/svgs/ExternalSvg.svelte";
 </script>
 
 {#snippet label(name: string, href: string)}
 	<div class="client-label">
 		<h3>{name}</h3>
-		<a {href} target="_blank">GitHub</a>
+		<a {href} target="_blank">
+			GitHub
+			<ExternalSvg />
+		</a>
 	</div>
 {/snippet}
 
@@ -166,8 +170,8 @@
 		}
 
 		h3 {
-			font-size: 18px;
-			line-height: 22px;
+			font-size: 1.25em;
+			line-height: 1.25em;
 			flex: 1 1 auto;
 			text-overflow: ellipsis;
 			overflow: hidden;
@@ -175,13 +179,22 @@
 		}
 
 		a {
-			font-size: 16px;
-			line-height: 20px;
+			font-size: 1em;
+			line-height: 1.25em;
 			margin-left: 8px;
 			flex: 0 0 auto;
+			display: flex;
+			align-items: center;
 
 			&:hover {
 				text-decoration: underline;
+			}
+
+			:global(svg) {
+				height: 1.25em;
+				width: 1.25em;
+				fill: #222222;
+				margin-left: 4px;
 			}
 		}
 	}

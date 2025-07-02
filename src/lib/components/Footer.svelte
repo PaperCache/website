@@ -31,8 +31,8 @@
 		}
 
 		:global(svg) {
-			height: 1.5em;
-			width: 1.5em;
+			height: 1.15em;
+			width: 1.15em;
 		}
 	}
 
