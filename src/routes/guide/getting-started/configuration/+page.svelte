@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Table from "$lib/components/Table.svelte";
 
-	const configs: Config[] = [
+	const CONFIGS: Config[] = [
 		{
 			key: "host",
 			description: "The host TCP IP.",
@@ -48,7 +48,7 @@
 
 <Table
 	headers={["Key", "Description", "Default"]}
-	items={configs}
+	items={CONFIGS}
 	{row}
 />
 

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Table from "$lib/components/Table.svelte";
 
-	const commands: Command[] = [
+	const COMMANDS: Command[] = [
 		{
 			command: "PING",
 			description: "Sends a ping request to the server. Useful for health checks.",
@@ -113,7 +113,7 @@
 
 <Table
 	headers={["Command", "Description", "Request", "Ok response"]}
-	items={commands}
+	items={COMMANDS}
 	{row}
 />
 

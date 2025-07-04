@@ -2,49 +2,16 @@
     import { base } from "$app/paths";
     import { page } from "$app/state";
     import CircleArrowSvg from "$lib/svgs/CircleArrowSvg.svelte";
+    import guides from "$lib/data/guides.json";
 
 	const { children } = $props();
 	let mobileNavOpen: boolean = $state(false);
 
-	const GUIDE_SECTIONS: GuideSection[] = [
-		{
-			title: "Getting started",
-			modules: [
-				initModule("getting-started/installation", "Installation"),
-				initModule("getting-started/configuration", "Configuration"),
-			],
-		},
-
-		{
-			title: "Usage",
-			modules: [
-				initModule("usage/clients", "Clients"),
-				initModule("usage/wire", "Wire protocol"),
-			],
-		},
-
-		{
-			title: "Eviction policies",
-			modules: [
-				initModule("eviction-policies", "Supported eviction policies"),
-				initModule("eviction-policies/custom", "Implementing your own eviction policy"),
-			],
-		},
-	];
-
 	const moduleTitle = $derived(
-		GUIDE_SECTIONS
+		guides
 			.flatMap(s => s.modules)
 			.find(g => page.route.id?.endsWith(g.slug))?.title
 	);
-
-	function initModule(slug: string, title: string): GuideModule {
-		return {
-			slug,
-			title,
-			isCurrent: page.route.id?.endsWith(slug) || false,
-		};
-	}
 
 	function toggleMobileNav() {
 		mobileNavOpen = !mobileNavOpen;
@@ -53,17 +20,6 @@
 	function closeMobileNav() {
 		mobileNavOpen = false;
 	}
-
-	type GuideSection = {
-		title: string;
-		modules: GuideModule[];
-	};
-
-	type GuideModule = {
-		slug: string;
-		title: string;
-		isCurrent: boolean;
-	};
 </script>
 
 <svelte:head>
@@ -78,11 +34,12 @@
 		</button>
 
 		<ul class={mobileNavOpen ? "" : "closed"}>
-			{#each GUIDE_SECTIONS as guideSection}
+			{#each guides as guideSection}
 				<li>{guideSection.title}</li>
 				<ul>
 					{#each guideSection.modules as guideModule}
-						{@render entry(guideModule.slug, guideModule.title)}
+						{@const slug = `${guideSection.slug}/${guideModule.slug}`}
+						{@render entry(slug, guideModule.title)}
 					{/each}
 				</ul>
 			{/each}
@@ -202,19 +159,14 @@
 
 			ul {
 				margin-top: 4px;
-				padding-left: 8px;
 
 				li {
-					margin-top: 0;
+					margin-top: 8px;
 					padding-left: 8px;
 					border-left: 4px solid transparent;
 
 					&.current {
 						border-left: 4px solid #222222;
-
-						a {
-							font-weight: 700;
-						}
 					}
 				}
 			}
@@ -229,6 +181,7 @@
 					color: #222222;
 					font-size: 0.9em;
 					line-height: 1.25em;
+					display: inline-block;
 				}
 			}
 		}

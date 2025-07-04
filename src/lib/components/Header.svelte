@@ -5,6 +5,7 @@
     import LogoSvg from "$lib/svgs/LogoSvg.svelte";
     import MenuSvg from "$lib/svgs/MenuSvg.svelte";
     import ExternalSvg from "$lib/svgs/ExternalSvg.svelte";
+    import links from "$lib/data/links.json";
 
     const {
     	minimized,
@@ -63,8 +64,8 @@
 	<nav class={menuOpen ? "open" : ""}>
 		{@render navItem(`${base}/`, "Home")}
 		{@render navItem(`${base}/guide`, "Guide")}
-		{@render navItem(`https://dl.acm.org/doi/abs/10.1145/3736548.3737836`, "Paper")}
-		{@render navItem(`${base}/`, "GitHub")}
+		{@render navItem(links.githubBase, "GitHub")}
+		{@render navItem(links.acmPaper, "HotStorage'25")}
 	</nav>
 </header>
 

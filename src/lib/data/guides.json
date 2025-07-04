@@ -1,0 +1,27 @@
+[
+	{
+		"title": "Getting started",
+		"slug": "getting-started",
+		"modules": [
+			{ "title": "Installation", "slug": "installation" },
+			{ "title": "Configuration", "slug": "configuration" },
+			{ "title": "Running PaperCache", "slug": "running" }
+		]
+	},
+	{
+		"title": "Usage",
+		"slug": "usage",
+		"modules": [
+			{ "title": "Clients", "slug": "clients" },
+			{ "title": "Wire protocol", "slug": "wire" }
+		]
+	},
+	{
+		"title": "Eviction",
+		"slug": "eviction",
+		"modules": [
+			{ "title": "Policies", "slug": "policies" },
+			{ "title": "Implementing your own policy", "slug": "custom" }
+		]
+	}
+]

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Code from "$lib/components/Code.svelte";
 	import ExternalSvg from "$lib/svgs/ExternalSvg.svelte";
+	import links from "$lib/data/links.json";
 </script>
 
 {#snippet label(name: string, href: string)}
@@ -14,7 +15,7 @@
 {/snippet}
 
 <section>
-	{@render label("Rust", "/")}
+	{@render label("Rust", `${links.githubBase}/paper-client-rs`)}
 
 	<Code lang="rust" numbers code={`
 		let client = PaperClient::new("paper://127.0.0.1:3145")?;
@@ -25,7 +26,7 @@
 </section>
 
 <section>
-	{@render label("JavaScript", "/")}
+	{@render label("JavaScript", `${links.githubBase}/paper-client-ts`)}
 
 	<Code lang="javascript" numbers code={`
 		const client = await PaperClient.connect("paper://127.0.0.1:3145");
@@ -36,7 +37,7 @@
 </section>
 
 <section>
-	{@render label("Go", "/")}
+	{@render label("Go", `${links.githubBase}/paper-client-go`)}
 
 	<Code lang="go" numbers code={`
 		client, err := Connect("paper://127.0.0.1:3145")
@@ -55,7 +56,7 @@
 </section>
 
 <section>
-	{@render label("C", "/")}
+	{@render label("C", `${links.githubBase}/paper-client-c`)}
 
 	<Code lang="c" numbers code={`
 		paper_client* client = paper_connect("paper://127.0.0.1:3145");
@@ -68,7 +69,7 @@
 </section>
 
 <section>
-	{@render label("C++", "/")}
+	{@render label("C++", `${links.githubBase}/paper-client-cpp`)}
 
 	<Code lang="cpp" numbers code={`
 		paper::client client ("paper://127.0.0.1:3145");
@@ -79,7 +80,7 @@
 </section>
 
 <section>
-	{@render label("Python", "/")}
+	{@render label("Python", `${links.githubBase}/paper-client-py`)}
 
 	<Code lang="python" numbers code={`
 		client = PaperClient("paper://127.0.0.1:3145")
@@ -90,7 +91,7 @@
 </section>
 
 <section>
-	{@render label("Java", "/")}
+	{@render label("Java", `${links.githubBase}/paper-client-java`)}
 
 	<Code lang="java" numbers code={`
 		PaperClient client = new PaperClient("paper://127.0.0.1:3145");
@@ -101,7 +102,7 @@
 </section>
 
 <section>
-	{@render label("C#", "/")}
+	{@render label("C#", `${links.githubBase}/paper-client-cs`)}
 
 	<Code lang="csharp" numbers code={`
 		var client = new PaperClient("paper://127.0.0.1:3145");
@@ -112,7 +113,7 @@
 </section>
 
 <section>
-	{@render label("Kotlin", "/")}
+	{@render label("Kotlin", `${links.githubBase}/paper-client-kt`)}
 
 	<Code lang="kotlin" numbers code={`
 		var client = PaperClient("paper://127.0.0.1:3145");
@@ -123,7 +124,7 @@
 </section>
 
 <section>
-	{@render label("PHP", "/")}
+	{@render label("PHP", `${links.githubBase}/paper-client-php`)}
 
 	<Code lang="php" numbers code={`
 		$client = new PaperClient("paper://127.0.0.1:3145");
@@ -134,7 +135,7 @@
 </section>
 
 <section>
-	{@render label("Ruby", "/")}
+	{@render label("Ruby", `${links.githubBase}/paper-client-rb`)}
 
 	<Code lang="ruby" numbers code={`
 		client = PaperClient::Client.new("paper://127.0.0.1:3145")
@@ -145,7 +146,7 @@
 </section>
 
 <section>
-	{@render label("Zig", "/")}
+	{@render label("Zig", `${links.githubBase}/paper-client-zig`)}
 
 	<Code lang="zig" numbers code={`
 		var heap = std.heap.ArenaAllocator.init(std.heap.page_allocator);
