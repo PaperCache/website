@@ -1,12 +1,12 @@
 <script lang="ts" generics="T">
-    import type { Snippet } from "svelte";
+	import type { Snippet } from "svelte";
 
-    const {
-    	headers = [],
-    	items,
-    	row,
-    	spaceIndex,
-    }: Props = $props();
+	const {
+		headers = [],
+		items,
+		row,
+		spaceIndex,
+	}: Props = $props();
 
 	type Props = {
 		headers?: string[];

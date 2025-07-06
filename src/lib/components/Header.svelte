@@ -1,22 +1,22 @@
 <script lang="ts">
-    import { onMount } from "svelte";
-    import { page } from "$app/state";
-    import { base } from "$app/paths";
-    import LogoSvg from "$lib/svgs/LogoSvg.svelte";
-    import MenuSvg from "$lib/svgs/MenuSvg.svelte";
-    import ExternalSvg from "$lib/svgs/ExternalSvg.svelte";
-    import links from "$lib/data/links.json";
+	import { onMount } from "svelte";
+	import { page } from "$app/state";
+	import { base } from "$app/paths";
+	import LogoSvg from "$lib/svgs/LogoSvg.svelte";
+	import MenuSvg from "$lib/svgs/MenuSvg.svelte";
+	import ExternalSvg from "$lib/svgs/ExternalSvg.svelte";
+	import links from "$lib/data/links.json";
 
-    const {
-    	minimized,
-    	fixed,
-    }: Props = $props();
+	const {
+		minimized,
+		fixed,
+	}: Props = $props();
 
-    const SCROLLING_THRESHOLD: number = 0;
+	const SCROLLING_THRESHOLD: number = 0;
 
-    let spacerHeight: number = $state(84);
-    let scrolling: boolean = $state(false);
-    let menuOpen: boolean = $state(false);
+	let spacerHeight: number = $state(84);
+	let scrolling: boolean = $state(false);
+	let menuOpen: boolean = $state(false);
 
 	function handleScroll() {
 		scrolling = window.scrollY > SCROLLING_THRESHOLD;
@@ -70,7 +70,7 @@
 </header>
 
 {#snippet navItem(href: string, text: string)}
-	{@const isCurrent = page.route.id === href}
+	{@const isCurrent = page.route.id === href || page.route.id?.startsWith(`${href}/`)}
 	{@const isExternal = href.startsWith("http")}
 	{@const target = isExternal ? "_blank" : "_self"}
 

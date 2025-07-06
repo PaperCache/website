@@ -1,5 +1,5 @@
 <script lang="ts">
-    import LogoSvg from "$lib/svgs/LogoSvg.svelte";
+	import LogoSvg from "$lib/svgs/LogoSvg.svelte";
 
 	function getCurrentYear(): number {
 		return new Date().getFullYear();

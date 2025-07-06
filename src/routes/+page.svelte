@@ -1,8 +1,7 @@
 <script lang="ts">
-    import { base } from "$app/paths";
+	import { base } from "$app/paths";
 	import Content from "$lib/components/Content.svelte";
 	import Tag from "$lib/components/Tag.svelte";
-	import Command from "$lib/components/Command.svelte";
 	import BarChart from "$lib/components/chart/BarChart.svelte";
 	import LogoSvg from "$lib/svgs/LogoSvg.svelte";
 	import policiesData from "$lib/data/policies.json";
@@ -27,7 +26,7 @@
 	<section class="vertical-split">
 		<div class="content">
 			<h2>Savings over static eviction policy caches</h2>
-			<p>PaperCache switches between any eviction policy, improving cache performance automatically.</p>
+			<p>PaperCache switches between any eviction policy, improving cache performance automatically. PaperCache can reduce its miss ratio by up to 48.5% compared to a statically configured LRU cache.</p>
 		</div>
 
 		<div class="chart">
@@ -40,38 +39,7 @@
 
 	<section>
 		<h2>Getting started</h2>
-
-		<p>To try PaperCache locally, install the <Tag href="#">paper-server</Tag> Rust crate, using the following instructions:</p>
-
-		<ol>
-			<li>Download and install <Tag href="#">Rust</Tag>.</li>
-
-			<li>
-				Install <Tag href="#">paper-server</Tag> using the command:
-
-				<Command command={`
-					cargo install paper-server
-				`} />
-			</li>
-
-			<li>Install a PaperCache <Tag href="{base}/client">client</Tag>.</li>
-
-			<li>
-				(Optional) Install <Tag href="#">paper-cli</Tag> using the command:
-
-				<Command command={`
-					cargo install paper-cli
-				`} />
-			</li>
-
-			<li>
-				(Optional) Install <Tag href="#">paper-benchmark</Tag> using the command:
-
-				<Command command={`
-					cargo install paper-benchmark
-				`} />
-			</li>
-		</ol>
+		<p>To try PaperCache locally, follow our <Tag href="{base}/guide/getting-started/installation">installation guide</Tag>.</p>
 	</section>
 </Content>
 

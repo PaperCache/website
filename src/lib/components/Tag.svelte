@@ -1,5 +1,5 @@
 <script lang="ts">
-    import ExternalSvg from "$lib/svgs/ExternalSvg.svelte";
+	import ExternalSvg from "$lib/svgs/ExternalSvg.svelte";
 
 	const {
 		href,

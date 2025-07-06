@@ -1,24 +1,24 @@
 <script lang="ts">
 	import Chart from "chart.js/auto";
-    import { onMount } from "svelte";
+	import { onMount } from "svelte";
 
-    const COLORS: string[] = [
-    	"#c4342b",
-    	"#0071ad",
-    	"#71ad00",
-    	"#554ec9",
-    	"#f7790d",
-    	"#e0ca3c",
-    	"#47a8bd",
-    	"#006a67",
-    	"#f29f05",
-    ];
+	const COLORS: string[] = [
+		"#c4342b",
+		"#0071ad",
+		"#71ad00",
+		"#554ec9",
+		"#f7790d",
+		"#e0ca3c",
+		"#47a8bd",
+		"#006a67",
+		"#f29f05",
+	];
 
-    const {
-    	xLabel,
-    	yLabel,
-    	data,
-    }: Props = $props();
+	const {
+		xLabel,
+		yLabel,
+		data,
+	}: Props = $props();
 
 	let canvas: HTMLCanvasElement;
 
@@ -66,7 +66,7 @@
 					backgroundColor: data.map((_, i) => COLORS[i % COLORS.length]),
 					barPercentage: 1.25,
 				}],
-			}
+			},
 		});
 	});
 

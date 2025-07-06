@@ -13,6 +13,7 @@
 		"slug": "usage",
 		"modules": [
 			{ "title": "Clients", "slug": "clients" },
+			{ "title": "Tools", "slug": "tools" },
 			{ "title": "Wire protocol", "slug": "wire" }
 		]
 	},

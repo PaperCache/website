@@ -1,8 +1,8 @@
 <script lang="ts">
-    import { base } from "$app/paths";
-    import { page } from "$app/state";
-    import CircleArrowSvg from "$lib/svgs/CircleArrowSvg.svelte";
-    import guides from "$lib/data/guides.json";
+	import { base } from "$app/paths";
+	import { page } from "$app/state";
+	import CircleArrowSvg from "$lib/svgs/CircleArrowSvg.svelte";
+	import guides from "$lib/data/guides.json";
 
 	const { children } = $props();
 	let mobileNavOpen: boolean = $state(false);
@@ -35,7 +35,8 @@
 
 		<ul class={mobileNavOpen ? "" : "closed"}>
 			{#each guides as guideSection}
-				<li>{guideSection.title}</li>
+				{@render entry(guideSection.slug, guideSection.title)}
+
 				<ul>
 					{#each guideSection.modules as guideModule}
 						{@const slug = `${guideSection.slug}/${guideModule.slug}`}
@@ -168,19 +169,25 @@
 					&.current {
 						border-left: 4px solid #222222;
 					}
+
+					a {
+						color: #222222;
+						font-size: 0.95em;
+						line-height: 1.15em;
+						font-weight: 400;
+						display: inline-block;
+					}
 				}
 			}
 
 			li {
-				font-size: 1.1em;
-				line-height: 1.5em;
-				font-weight: 700;
 				margin-top: 32px;
 
 				a {
 					color: #222222;
-					font-size: 0.9em;
-					line-height: 1.25em;
+					font-size: 1.1em;
+					line-height: 1.5em;
+					font-weight: 700;
 					display: inline-block;
 				}
 			}

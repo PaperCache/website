@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { base } from "$app/paths";
+	import { base } from "$app/paths";
 	import Tag from "$lib/components/Tag.svelte";
 
 	const POLICIES = [
@@ -23,7 +23,7 @@
 	{/each}
 </ul>
 
-<p>If you would like to add an eviction policy not listed here to PaperCache, follow <Tag href="{base}/guide/eviction-policies/custom">this</Tag> guide.</p>
+<p>If you would like to add an eviction policy not listed here to PaperCache, follow <Tag href="{base}/guide/eviction/custom">this</Tag> guide.</p>
 
 <style lang="scss">
 	ul {

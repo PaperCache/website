@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { base } from "$app/paths";
+	import { base } from "$app/paths";
 	import Tag from "$lib/components/Tag.svelte";
 	import Command from "$lib/components/Command.svelte";
 </script>
