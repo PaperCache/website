@@ -15,7 +15,7 @@ const config = {
 		}),
 
 		paths: {
-			base: isProd ? "/website" : "",
+			base: isProd ? "" : "",
 		},
 
 		// prerender: {
