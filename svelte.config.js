@@ -15,8 +15,7 @@ const config = {
 		}),
 
 		paths: {
-			// base: isProd ? "/website" : "",
-			base: isProd ? "/home/kia/git/paper/website/build" : "",
+			base: isProd ? "/website" : "",
 		},
 
 		prerender: {
