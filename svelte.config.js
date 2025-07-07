@@ -18,9 +18,9 @@ const config = {
 			base: isProd ? "/website" : "",
 		},
 
-		prerender: {
-			entries: [],
-		}
+		// prerender: {
+		// 	entries: [],
+		// }
 	}
 };
 
