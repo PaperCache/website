@@ -162,7 +162,7 @@
 				margin-top: 4px;
 
 				li {
-					margin-top: 8px;
+					margin-top: 4px;
 					padding-left: 8px;
 					border-left: 4px solid transparent;
 
