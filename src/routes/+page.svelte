@@ -91,8 +91,8 @@
 			font-size: 1.15em;
 
 			@media screen and (max-width: app.$mobile-width) {
-				font-size: 1em;
-				line-height: 1em;
+				font-size: 1.05em;
+				line-height: 1.5em;
 			}
 		}
 
