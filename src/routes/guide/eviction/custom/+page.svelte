@@ -2,21 +2,22 @@
 	import Content from "$lib/components/Content.svelte";
 	import Code from "$lib/components/Code.svelte";
 	import Tag from "$lib/components/Tag.svelte";
+	import links from "$lib/data/links.json";
 </script>
 
 <p>PaperCache makes it easy to implement your own eviction policies. Here, we describe how to add a custom eviction policy to PaperCache by implementing the <Tag>LRU</Tag> eviction policy.</p>
 
 <ol>
 	<li>
-		<p>Add our new policy as an enum entry in <Tag href="#">paper-cache/src/policy.rs</Tag>, following existing examples.</p>
+		<p>Add our new policy as an enum entry in <Tag href={`${links.githubBase}/paper-cache/blob/main/src/policy.rs`}>paper-cache/src/policy.rs</Tag>, following existing examples.</p>
 	</li>
 
 	<li>
-		<p>Add the file <Tag>lru_stack.rs</Tag> to <Tag href="#">paper-cache/src/worker/policy/policy_stack.rs</Tag>.</p>
+		<p>Add the file <Tag>lru_stack.rs</Tag> to <Tag href={`${links.githubBase}/paper-cache/blob/main/src/worker/policy/policy_stack/`}>paper-cache/src/worker/policy/policy_stack/</Tag>.</p>
 	</li>
 
 	<li>
-		<p>Create a struct to hold the state of the custom eviction policy. In this case, we will hold all the keys in LRU order in a <Tag href="https://github.com/KiaShakiba/kwik/blob/main/src/collections/hash_list.rs">HashList</Tag> (i.e., doubly-linked list + hash table for <i>O(1)</i> operations) from the <Tag href="https://github.com/KiaShakiba/kwik">kwik</Tag> library:</p>
+		<p>Create a struct to hold the state of the custom eviction policy. In this case, we will hold all the keys in LRU order in a <Tag href="https://github.com/KiaShakiba/kwik/blob/main/src/collections/hash_list.rs">HashList</Tag> (i.e., doubly-linked list + hash table for <i>O(1)</i> operations) from the <Tag href="https://crates.io/crates/kwik">kwik</Tag> library:</p>
 		<Code lang="rust" numbers code={`
 			use kwik::collections::HashList;
 			use crate::{HashedKey, NoHasher};
@@ -30,7 +31,7 @@
 	</li>
 
 	<li>
-		<p>Implement the <Tag href="#">PolicyStack</Tag> trait for our new struct:</p>
+		<p>Implement the <Tag href={`${links.githubBase}/paper-cache/blob/main/src/worker/policy/policy_stack/mod.rs`}>PolicyStack</Tag> trait for our new struct:</p>
 		<Code lang="rust" numbers code={`
 			use crate::{
 				policy::PaperPolicy,
@@ -91,7 +92,7 @@
 	</li>
 
 	<li>
-		<p>Add our new policy to the <Tag href="#">init_policy_stack</Tag> function in <Tag href="#">paper-cache/src/worker/policy/policy_stack/mod.rs</Tag>.</p>
+		<p>Add our new policy to the <Tag>init_policy_stack</Tag> function in <Tag href={`${links.githubBase}/paper-cache/blob/main/src/worker/policy/policy_stack/mod.rs`}>paper-cache/src/worker/policy/policy_stack/mod.rs</Tag>.</p>
 	</li>
 </ol>
 

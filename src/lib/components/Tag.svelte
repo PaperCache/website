@@ -60,7 +60,7 @@
 			height: inherit;
 			width: inherit;
 			fill: #0065f8;
-			vertical-align: sub;
+			vertical-align: text-bottom;
 		}
 	}
 </style>
