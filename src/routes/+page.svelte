@@ -128,7 +128,7 @@
 		width: 100%;
 		margin-top: 0;
 		padding: 16px;
-		background: linear-gradient(0deg, color.adjust(app.$theme-color, $lightness: 15%), app.$theme-color);
+		background: linear-gradient(0deg, color.adjust(app.$theme-color, $blackness: 15%), app.$theme-color);
 		text-align: center;
 		overflow: hidden;
 		position: relative;
@@ -170,7 +170,7 @@
 			height: 64px;
 			width: 64px;
 			padding: 16px;
-			background-color: rgba(255, 255, 255, 0.25);
+			background-color: rgba(255, 255, 255, 0.35);
 			border-radius: 8px;
 			position: absolute;
 			bottom: -150px;
