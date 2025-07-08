@@ -46,7 +46,7 @@
 			// handle error
 		}
 
-		client.Set("key", "value", 0);
+		client.Set("key", "value", 0)
 		got, err := client.Get("key")
 
 		if err != nil {
