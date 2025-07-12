@@ -92,7 +92,7 @@
 
 	header {
 		width: 100%;
-		padding: 20px 64px;
+		padding: 20px 32px;
 		background-color: #ffffff;
 		display: flex;
 		align-items: center;
@@ -212,13 +212,11 @@
 	}
 
 	.minimized {
-		padding-top: 12px;
-		padding-bottom: 12px;
+		padding: 12px 24px;
 		box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.15);
 
 		@media screen and (max-width: app.$mobile-width) {
-			padding-top: 8px;
-			padding-bottom: 8px;
+			padding: 8px 16px;
 		}
 
 		.name {

@@ -3,8 +3,10 @@
 	import Content from "$lib/components/Content.svelte";
 	import Tag from "$lib/components/Tag.svelte";
 	import BarChart from "$lib/components/chart/BarChart.svelte";
+	import LineChart from "$lib/components/chart/LineChart.svelte";
 	import LogoSvg from "$lib/svgs/LogoSvg.svelte";
 	import policiesData from "$lib/data/policies.json";
+	import policiesTimeData from "$lib/data/policies-time.json";
 </script>
 
 <svelte:head>
@@ -23,6 +25,16 @@
 </section>
 
 <Content>
+	<section class="line-chart">
+		<LineChart
+			lines={policiesTimeData}
+			xLabel="Time (hrs)"
+			yLabel="Miss ratio"
+			yMin={0}
+			yMax={1}
+		/>
+	</section>
+
 	<section class="vertical-split">
 		<div class="content">
 			<h2>Savings over static eviction policy caches</h2>
@@ -58,6 +70,14 @@
 			flex-direction: column;
 		}
 
+		&.line-chart {
+			height: 300px;
+
+			@media screen and (max-width: app.$mobile-width) {
+				height: 200px;
+			}
+		}
+
 		.content {
 			@media screen and (max-width: app.$mobile-width) {
 				height: auto;
@@ -86,7 +106,7 @@
 			}
 		}
 
-		p, li {
+		p {
 			color: #222222;
 			font-size: 1.15em;
 
@@ -94,10 +114,6 @@
 				font-size: 1.05em;
 				line-height: 1.5em;
 			}
-		}
-
-		li {
-			margin: 12px 0;
 		}
 
 		&.vertical-split {
@@ -128,7 +144,7 @@
 		width: 100%;
 		margin-top: 0;
 		padding: 16px;
-		background: linear-gradient(0deg, color.adjust(app.$theme-color, $blackness: 15%), app.$theme-color);
+		background: linear-gradient(0deg, color.adjust(app.$theme-color, $blackness: 25%), app.$theme-color);
 		text-align: center;
 		overflow: hidden;
 		position: relative;
