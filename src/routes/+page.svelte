@@ -186,7 +186,7 @@
 			height: 64px;
 			width: 64px;
 			padding: 16px;
-			background-color: rgba(255, 255, 255, 0.35);
+			background-color: rgba(255, 255, 255, 0.45);
 			border-radius: 8px;
 			position: absolute;
 			bottom: -150px;
