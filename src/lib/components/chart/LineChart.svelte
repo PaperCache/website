@@ -28,7 +28,10 @@
 	let height: number | undefined = $state();
 	let width: number | undefined = $state();
 
-	$effect(() => chart?.resize(width, height));
+	$effect(() => {
+		chart?.resize(width, height);
+		chart?.update();
+	});
 
 	onMount(() => {
 		const font = {

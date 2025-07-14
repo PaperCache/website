@@ -26,13 +26,17 @@
 
 <Content>
 	<section class="line-chart">
-		<LineChart
-			lines={policiesTimeData}
-			xLabel="Time (hrs)"
-			yLabel="Miss ratio"
-			yMin={0}
-			yMax={1}
-		/>
+		<h2>Lower your miss ratio by dynamically switching eviction policies.</h2>
+
+		<div class="chart-container">
+			<LineChart
+				lines={policiesTimeData}
+				xLabel="Time (hrs)"
+				yLabel="Miss ratio"
+				yMin={0}
+				yMax={1}
+			/>
+		</div>
 	</section>
 
 	<section class="vertical-split">
@@ -71,10 +75,14 @@
 		}
 
 		&.line-chart {
-			height: 300px;
+			text-align: center;
 
-			@media screen and (max-width: app.$mobile-width) {
-				height: 200px;
+			.chart-container {
+				height: 300px;
+
+				@media screen and (max-width: app.$mobile-width) {
+					height: 200px;
+				}
 			}
 		}
 
