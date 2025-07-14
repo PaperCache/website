@@ -42,12 +42,13 @@
 
 		a {
 			color: #222222;
-			font-size: 1.15em;
+			font-size: 1.1em;
 			font-weight: 700;
 			width: 100%;
 			margin-top: 16px;
 			padding: 32px;
-			border: 2px solid #222222;
+			background-color: #f8f8f8;
+			border: 1px solid #222222;
 			border-radius: 4px;
 		}
 	}

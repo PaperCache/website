@@ -18,8 +18,11 @@
 		const computed = window.getComputedStyle(element);
 		const padding = parseFloat(computed.paddingLeft) + parseFloat(computed.paddingRight);
 
+		// add a fudge factor to slightly increase the width
+		const fudge = 2;
+
 		ctx.font = computed.font;
-		width = Math.ceil(ctx?.measureText(command.trim()).width) + padding;
+		width = Math.ceil(ctx?.measureText(command.trim()).width) + padding + fudge;
 	});
 
 	type Props = {
@@ -39,6 +42,7 @@
 <style lang="scss">
 	input[type="text"] {
 		width: 16px;
+		max-width: 100%;
 		border: 1px solid #222222;
 		padding: 8px;
 		background-color: #222222;
