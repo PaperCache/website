@@ -116,10 +116,10 @@
 	{@render label("Kotlin", `${links.githubBase}/paper-client-kt`)}
 
 	<Code lang="kotlin" numbers code={`
-		var client = PaperClient("paper://127.0.0.1:3145");
+		var client = PaperClient("paper://127.0.0.1:3145")
 
-		client.set("key", "value");
-		var got = client.get("key");
+		client.set("key", "value")
+		val got = client.get("key")
 	`} />
 </section>
 
