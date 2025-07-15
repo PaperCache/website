@@ -97,7 +97,7 @@
 		PaperClient client = new PaperClient("paper://127.0.0.1:3145");
 
 		client.set("key", "value");
-		PaperResponse<String> got = client.get("key");
+		String got = client.get("key");
 	`} />
 </section>
 
