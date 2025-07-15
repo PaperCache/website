@@ -81,13 +81,16 @@
 			response: [],
 		},
 		{
-			label: "STATS",
-			description: "Gets the cache's statistics.",
+			label: "STATUS",
+			description: "Gets the cache's status.",
 			request: ["13 (u8)"],
 			response: [
+				"<pid> (u32)",
 				"<max size> (u64)",
 				"<used size> (u64)",
 				"<num objects> (u64)",
+				"<rss> (u64)",
+				"<hwm> (u64)",
 				"<total GETs> (u64)",
 				"<total SETs> (u64)",
 				"<total DELs> (u64)",
