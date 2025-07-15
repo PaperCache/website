@@ -23,7 +23,7 @@
 		{
 			bytes: 4,
 			type: "u32",
-			description: "The access size (i.e., the size of the object, in bytes).",
+			description: "The access size (i.e., the size of the object in bytes).",
 		},
 		{
 			bytes: 4,
