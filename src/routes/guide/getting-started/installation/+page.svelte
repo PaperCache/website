@@ -15,7 +15,7 @@
 <h3>Install using Docker image</h3>
 <p>The official PaperCache <Tag href={DOCKER_HREF}>Docker image</Tag> can be used to install and run PaperCache using the command:
 <Command command={`
-	docker run --net=host kiashakiba/paper-cache:v1.11.9
+	docker run --net=host kiashakiba/paper-cache:v1.11.10
 `} />
 </p>
 
