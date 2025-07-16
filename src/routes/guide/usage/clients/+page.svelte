@@ -107,8 +107,8 @@
 	<Code lang="csharp" numbers code={`
 		var client = new PaperClient("paper://127.0.0.1:3145");
 
-		client.set("key", "value");
-		var got = client.get("key");
+		client.Set("key", "value");
+		var got = client.Get("key");
 	`} />
 </section>
 
