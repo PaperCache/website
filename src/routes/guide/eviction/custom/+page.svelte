@@ -84,7 +84,7 @@
 
 				/// Perform one eviction from the stack.
 				fn evict_one(&mut self) -> Option<HashedKey> {
-					self.stack.pop_back();
+					self.stack.pop_back()
 				}
 			}
 		`} />
