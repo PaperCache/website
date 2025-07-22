@@ -78,7 +78,9 @@
 </script>
 
 <svelte:head>
-	<link rel="stylesheet" href="/highlightjs/{stylesheet}.min.css" />
+	{#if typeof window !== "undefined"}
+		<link rel="stylesheet" href="/highlightjs/{stylesheet}.min.css" />
+	{/if}
 </svelte:head>
 
 <div class="code">
