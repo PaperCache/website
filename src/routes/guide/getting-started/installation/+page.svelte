@@ -8,7 +8,7 @@
 
 <p>To try PaperCache locally, use either:</p>
 <ul>
-	<li>The official <Tag href={DOCKER_HREF}>Docker image</Tag></li>
+	<li>The <Tag href={DOCKER_HREF}>Docker image</Tag></li>
 	<li>The <Tag href="https://crates.io/crates/paper-server">paper-server</Tag> Rust crate</li>
 </ul>
 
@@ -54,8 +54,11 @@
 </ol>
 
 <style lang="scss">
+	@use "$lib/styles/app";
+
 	h3 {
-		color: #222222;
+		@include app.themed("light") { color: #222222; }
+		@include app.themed("night") { color: #ffffff; }
 		font-size: 1.15em;
 		font-weight: 700;
 		margin: 32px 0 8px;

@@ -46,18 +46,22 @@
 
 	table {
 		width: 100%;
-		border: 1px solid #222222;
+		border: 1px solid;
+		@include app.themed("light") { border-color: #222222; }
+		@include app.themed("night") { border-color: #424242; }
 		border-radius: 4px;
 		border-spacing: 0;
 		border-collapse: separate;
 
 		thead tr {
-			background-color: #eeeeee;
+			@include app.themed("light") { background-color: #eeeeee; }
+			@include app.themed("night") { background-color: #424242; }
 		}
 
 		tr {
 			&:hover {
-				background-color: #eeeeee;
+				@include app.themed("light") { background-color: #eeeeee; }
+				@include app.themed("night") { background-color: #424242; }
 			}
 
 			&:last-of-type {
@@ -68,11 +72,14 @@
 		}
 
 		th, :global(td) {
-			color: #222222;
+			@include app.themed("light") { color: #222222; }
+			@include app.themed("night") { color: #ffffff; }
 			font-size: 0.9em;
 			line-height: 1.25em;
 			padding: 16px 20px;
-			border-bottom: 1px solid #dddddd;
+			border-bottom: 1px solid;
+			@include app.themed("light") { border-color: #dddddd; }
+			@include app.themed("night") { border-color: #424242; }
 			vertical-align: top;
 
 			@media screen and (max-width: app.$mobile-width) {

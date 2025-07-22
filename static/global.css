@@ -10,9 +10,16 @@ a {
 }
 
 p, li {
-	color: #222222;
 	font-size: 1em;
 	line-height: 2em;
+}
+
+main.light p, main.light li {
+	color: #222222;
+}
+
+main.night p, main.night li {
+	color: #ffffff;
 }
 
 ol, ul {

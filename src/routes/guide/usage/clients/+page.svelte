@@ -161,13 +161,16 @@
 </section>
 
 <style lang="scss">
+	@use "$lib/styles/app";
+
 	.client-label {
 		width: 100%;
 		display: flex;
 		align-items: center;
 
 		h3, a {
-			color: #222222;
+			@include app.themed("light") { color: #222222; }
+			@include app.themed("night") { color: #ffffff; }
 		}
 
 		h3 {
@@ -194,7 +197,8 @@
 			:global(svg) {
 				height: 1.25em;
 				width: 1.25em;
-				fill: #222222;
+				@include app.themed("light") { fill: #222222; }
+				@include app.themed("night") { fill: #ffffff; }
 				margin-left: 4px;
 			}
 		}

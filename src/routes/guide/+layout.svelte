@@ -82,8 +82,11 @@
 		min-width: 280px;
 		max-width: 340px;
 		padding: 0 24px 32px;
-		background-color: #f8f8f8;
-		border-right: 1px solid #dddddd;
+		@include app.themed("light") { background-color: #f8f8f8; }
+		@include app.themed("night") { background-color: #222222; }
+		border-right: 1px solid;
+		@include app.themed("light") { border-color: #dddddd; }
+		@include app.themed("night") { border-color: #424242; }
 		flex: 0 0 auto;
 		overflow-y: auto;
 
@@ -99,15 +102,19 @@
 				width: 100%;
 				text-align: left;
 				padding: 8px 12px;
-				background-color: #ffffff;
-				border: 1px solid #dddddd;
+				@include app.themed("light") { background-color: #ffffff; }
+				@include app.themed("night") { background-color: #222222; }
+				border: 1px solid;
+				@include app.themed("light") { border-color: #dddddd; }
+				@include app.themed("night") { border-color: #424242; }
 				border-top-right-radius: 4px;
 				border-top-left-radius: 4px;
 				display: flex !important;
 				align-items: center;
 
 				span {
-					color: #222222;
+					@include app.themed("light") { color: #222222; }
+					@include app.themed("night") { color: #ffffff; }
 					font-size: 1.15em;
 					line-height: 1.15em;
 					font-weight: 700;
@@ -117,6 +124,8 @@
 				:global(svg) {
 					height: 1.35em;
 					width: 1.35em;
+					@include app.themed("light") { fill: #222222; }
+					@include app.themed("night") { fill: #ffffff; }
 					margin-left: 8px;
 					flex: 0 0 auto;
 					transition: transform 0.15s ease-out;
@@ -133,9 +142,11 @@
 
 			> ul {
 				padding: 8px !important;
-				border-right: 1px solid #dddddd;
-				border-bottom: 1px solid #dddddd;
-				border-left: 1px solid #dddddd;
+				border-right: 1px solid;
+				border-bottom: 1px solid;
+				border-left: 1px solid;
+				@include app.themed("light") { border-color: #dddddd; }
+				@include app.themed("night") { border-color: #424242; }
 				border-bottom-right-radius: 4px;
 				border-bottom-left-radius: 4px;
 				transition: height 0.25s ease-out;
@@ -167,11 +178,14 @@
 					border-left: 4px solid transparent;
 
 					&.current {
-						border-left: 4px solid #222222;
+						border-left: 4px solid;
+						@include app.themed("light") { border-color: #222222; }
+						@include app.themed("night") { border-color: #ffffff; }
 					}
 
 					a {
-						color: #222222;
+						@include app.themed("light") { color: #222222; }
+						@include app.themed("night") { color: #ffffff; }
 						font-size: 0.95em;
 						line-height: 1.15em;
 						font-weight: 400;
@@ -184,7 +198,8 @@
 				margin-top: 32px;
 
 				a {
-					color: #222222;
+					@include app.themed("light") { color: #222222; }
+					@include app.themed("night") { color: #ffffff; }
 					font-size: 1.1em;
 					line-height: 1.5em;
 					font-weight: 700;
@@ -204,13 +219,16 @@
 		}
 
 		h2 {
-			color: #222222;
+			@include app.themed("light") { color: #222222; }
+			@include app.themed("night") { color: #ffffff; }
 			font-size: 1.5em;
 			line-height: 1.5em;
 			font-weight: 700;
 			margin-bottom: 16px;
 			padding-bottom: 8px;
-			border-bottom: 1px solid #dddddd;
+			border-bottom: 1px solid;
+			@include app.themed("light") { border-color: #dddddd; }
+			@include app.themed("night") { border-color: #424242; }
 		}
 	}
 </style>

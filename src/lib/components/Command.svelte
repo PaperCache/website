@@ -40,12 +40,17 @@
 />
 
 <style lang="scss">
+	@use "$lib/styles/app";
+
 	input[type="text"] {
 		width: 16px;
 		max-width: 100%;
-		border: 1px solid #222222;
+		border: 1px solid;
+		@include app.themed("light") { border-color: #222222; }
+		@include app.themed("night") { border-color: #424242; }
 		padding: 8px;
-		background-color: #222222;
+		@include app.themed("light") { background-color: #222222; }
+		@include app.themed("night") { background-color: #424242; }
 		color: #ffffff;
 		font-size: 0.8em;
 		line-height: 0.8em;

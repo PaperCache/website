@@ -30,13 +30,18 @@
 {/if}
 
 <style lang="scss">
+	@use "$lib/styles/app";
+
 	span, a {
 		font-size: inherit;
 		line-height: inherit;
 		max-width: 100%;
 		padding: 0 4px;
-		background-color: #f8f8f8;
-		border: 1px solid #222222;
+		@include app.themed("light") { background-color: #f8f8f8; }
+		@include app.themed("night") { background-color: #333333; }
+		border: 1px solid;
+		@include app.themed("light") { border-color: #222222; }
+		@include app.themed("night") { border-color: #424242; }
 		border-radius: 4px;
 		white-space: nowrap;
 		display: inline-block;

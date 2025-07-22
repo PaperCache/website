@@ -20,7 +20,9 @@
 	footer {
 		width: 100%;
 		padding: 8px 16px;
-		border-top: 1px solid #dddddd;
+		border-top: 1px solid;
+		@include app.themed("light") { border-color: #dddddd; }
+		@include app.themed("night") { border-color: #424242; }
 		display: flex;
 		align-items: center;
 		flex: 0 0 auto;
@@ -38,6 +40,8 @@
 
 	.copyright {
 		color: #555555;
+		@include app.themed("light") { color: #555555; }
+		@include app.themed("night") { color: #dddddd; }
 		font-size: 0.85em;
 		line-height: 1.5em;
 		margin-left: auto;

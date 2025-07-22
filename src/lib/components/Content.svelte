@@ -24,7 +24,8 @@
 	@use "$lib/styles/app";
 
 	h2 {
-		color: #222222;
+		@include app.themed("light") { color: #222222; }
+		@include app.themed("night") { color: #ffffff; }
 		font-size: 1.75em;
 		font-weight: 700;
 		margin-bottom: 16px;

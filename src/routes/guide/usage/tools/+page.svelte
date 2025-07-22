@@ -75,8 +75,11 @@
 <Command command="paper-benchmark -h" />
 
 <style lang="scss">
+	@use "$lib/styles/app";
+
 	h3, h4 {
-		color: #222222;
+		@include app.themed("light") { color: #222222; }
+		@include app.themed("night") { color: #ffffff; }
 		font-weight: 700;
 	}
 

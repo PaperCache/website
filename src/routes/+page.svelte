@@ -101,7 +101,8 @@
 		}
 
 		h2 {
-			color: #222222;
+			@include app.themed("light") { color: #222222; }
+			@include app.themed("night") { color: #ffffff; }
 			font-size: 1.7em;
 			line-height: 1.7em;
 			font-weight: 700;
@@ -115,7 +116,8 @@
 		}
 
 		p {
-			color: #222222;
+			@include app.themed("light") { color: #222222; }
+			@include app.themed("night") { color: #ffffff; }
 			font-size: 1.15em;
 
 			@media screen and (max-width: app.$mobile-width) {
@@ -166,7 +168,8 @@
 		}
 
 		h1 {
-			color: #ffffff;
+			@include app.themed("light") { color: #ffffff; }
+			@include app.themed("night") { color: #ffffff; }
 			font-size: 5em;
 			font-weight: 700;
 
@@ -176,7 +179,8 @@
 		}
 
 		h2 {
-			color: #ffffff;
+			@include app.themed("light") { color: #ffffff; }
+			@include app.themed("night") { color: #ffffff; }
 			font-size: 1.4em;
 			font-weight: 300;
 			margin-top: 4px;

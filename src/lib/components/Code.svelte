@@ -1,5 +1,6 @@
 <script lang="ts">
 	import hljs from "highlight.js";
+	import { ThemeManager } from "$lib/utils/theme-manager";
 
 	import rust from "highlight.js/lib/languages/rust";
 	import javascript from "highlight.js/lib/languages/javascript";
@@ -12,8 +13,6 @@
 	import kotlin from "highlight.js/lib/languages/kotlin";
 	import php from "highlight.js/lib/languages/php";
 	import ruby from "highlight.js/lib/languages/ruby";
-
-	import "highlight.js/styles/vs.min.css";
 
 	hljs.registerLanguage("rust", rust);
 	hljs.registerLanguage("javascript", javascript);
@@ -33,6 +32,9 @@
 		code,
 		numbers,
 	}: Props = $props();
+
+	const theme = ThemeManager.get();
+	let stylesheet = $derived($theme === "light" ? "vs" : "monokai-sublime");
 
 	function getHighlightedCode(): string {
 		const formatted = getFormattedCode();
@@ -75,6 +77,10 @@
 	};
 </script>
 
+<svelte:head>
+	<link rel="stylesheet" href="/highlightjs/{stylesheet}.min.css" />
+</svelte:head>
+
 <div class="code">
 	{#if numbers}
 		<div class="line-numbers">
@@ -88,12 +94,18 @@
 </div>
 
 <style lang="scss">
+	@use "sass:meta";
+	@use "$lib/styles/app";
+
 	.code {
 		margin: 8px 0;
 		padding: 12px;
-		border: 1px solid #222222;
+		border: 1px solid;
+		@include app.themed("light") { border-color: #222222; }
+		@include app.themed("night") { border-color: #424242; }
 		border-radius: 4px;
-		background-color: #f8f8f8;
+		@include app.themed("light") { background-color: #f8f8f8; }
+		@include app.themed("night") { background-color: #333333; }
 		display: flex;
 	}
 
@@ -104,7 +116,8 @@
 		flex-direction: column;
 
 		span {
-			color: #555555;
+			@include app.themed("light") { color: #555555; }
+			@include app.themed("night") { color: #dddddd; }
 			font-family: "Source Code Pro", monospace !important;
 			font-size: 0.5em;
 			line-height: 2.25em;
@@ -112,6 +125,8 @@
 	}
 
 	pre {
+		@include app.themed("light") { color: #222222; }
+		@include app.themed("night") { color: #ffffff; }
 		overflow-y: auto;
 		font-family: "Source Code Pro", monospace !important;
 		font-size: 0.75em;
@@ -130,6 +145,7 @@
 		:global(.hljs-meta),
 		:global(.hljs-params),
 		:global(.hljs-string),
+		:global(.hljs-number),
 		:global(.hljs-literal),
 		:global(.hljs-property)
  		{
