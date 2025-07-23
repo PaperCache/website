@@ -55,16 +55,19 @@
 	}
 
 	a {
-		color: #0065f8;
+		@include app.themed("light") { color: #0065f8; }
+		@include app.themed("night") { color: #0560e5; }
 
 		&:hover {
-			border-color: #0065f8;
+			@include app.themed("light") { border-color: #0065f8; }
+			@include app.themed("night") { border-color: #0560e5; }
 		}
 
 		:global(svg) {
 			height: inherit;
 			width: inherit;
-			fill: #0065f8;
+			@include app.themed("light") { fill: #0065f8; }
+			@include app.themed("night") { fill: #0560e5; }
 			vertical-align: text-bottom;
 		}
 	}
