@@ -18,21 +18,23 @@
 {#if href}
 	{@const isExternal = href.startsWith("http")}
 
-	<a {href} {target}>
-		{@render children()}
+	<a {href} {target} class="tag">
+		<span>{@render children()}</span>
 
 		{#if isExternal}
 			<ExternalSvg />
 		{/if}
 	</a>
 {:else}
-	<span>{@render children()}</span>
+	<div class="tag">
+		<span>{@render children()}</span>
+	</div>
 {/if}
 
 <style lang="scss">
 	@use "$lib/styles/app";
 
-	span, a {
+	.tag {
 		font-size: inherit;
 		line-height: inherit;
 		max-width: 100%;
@@ -43,18 +45,25 @@
 		@include app.themed("light") { border-color: #222222; }
 		@include app.themed("night") { border-color: #424242; }
 		border-radius: 4px;
-		white-space: nowrap;
-		display: inline-block;
+		display: inline-flex;
+		align-items: center;
 		vertical-align: top;
-		text-overflow: ellipsis;
-		overflow: hidden;
+
+		span {
+			font-size: inherit;
+			line-height: inherit;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			flex: 1 1 auto;
+		}
 	}
 
-	span {
+	span.tag {
 		color: inherit;
 	}
 
-	a {
+	a.tag {
 		@include app.themed("light") { color: #0065f8; }
 		@include app.themed("night") { color: #0560e5; }
 
@@ -64,11 +73,12 @@
 		}
 
 		:global(svg) {
-			height: inherit;
-			width: inherit;
+			height: 1em;
+			width: 1em;
+			margin-left: 4px;
 			@include app.themed("light") { fill: #0065f8; }
 			@include app.themed("night") { fill: #0560e5; }
-			vertical-align: text-bottom;
+			flex: 0 0 auto;
 		}
 	}
 </style>
