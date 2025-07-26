@@ -59,6 +59,11 @@
 			@include app.themed("light") { border-color: #222222; }
 			@include app.themed("night") { border-color: #ffffff; }
 			border-radius: 4px;
+
+			&:hover {
+				@include app.themed("light") { background-color: #eeeeee; }
+				@include app.themed("night") { background-color: #424242; }
+			}
 		}
 	}
 </style>
