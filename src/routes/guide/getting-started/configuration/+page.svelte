@@ -20,7 +20,7 @@
 		{
 			key: "policies[]",
 			description: "A list of configured eviction poliices. Policies are added by repeating the key with new values. The 2Q eviction policy is configured as '2Q-<K_in>-<K_out>'. The S3-FIFO eviction policy is configured as 'S3-FIFO-<|S|>'.",
-			default: "LFU, FIFO, CLOCK, SIEVE, LRU, MRU, 2Q-0.25-0.5, Arc, S3-FIFO-0.1",
+			default: "LFU, FIFO, CLOCK, SIEVE, LRU, MRU, 2Q-0.25-0.5, ARC, S3-FIFO-0.1",
 		},
 		{
 			key: "policy",

@@ -10,7 +10,7 @@
 		"LRU",
 		"MRU",
 		"2Q",
-		"Arc",
+		"ARC",
 		"S3-FIFO",
 	];
 </script>
