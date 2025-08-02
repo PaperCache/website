@@ -79,6 +79,7 @@
 		{@render navItem(`${base}/`, "Home")}
 		{@render navItem(`${base}/guide`, "Guide")}
 		{@render navItem(links.githubBase, "GitHub")}
+		{@render navItem(links.kudos, "Kudos")}
 		{@render navItem(links.acmPaper, "HotStorage'25")}
 	</nav>
 </header>
