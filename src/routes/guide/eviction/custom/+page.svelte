@@ -17,7 +17,7 @@
 	</li>
 
 	<li>
-		<p>Create a struct to hold the state of the custom eviction policy. In this case, we will hold all the keys in LRU order in a <Tag href="https://github.com/KiaShakiba/kwik/blob/main/src/collections/hash_list.rs">HashList</Tag> (i.e., doubly-linked list + hash table for <i>O(1)</i> operations) from the <Tag href="https://crates.io/crates/kwik">kwik</Tag> library:</p>
+		<p>Create a struct to hold the state of the custom eviction policy. In this case, we will hold all the keys in LRU order in a <Tag href="https://docs.rs/kwik/latest/kwik/collections/hash_list/struct.HashList.html">HashList</Tag> (i.e., doubly-linked list + hash table for <i>O(1)</i> operations) from the <Tag href="https://crates.io/crates/kwik">kwik</Tag> library:</p>
 		<Code lang="rust" numbers code={`
 			use kwik::collections::HashList;
 			use crate::{HashedKey, NoHasher};
