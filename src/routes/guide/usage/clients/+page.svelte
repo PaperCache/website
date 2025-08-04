@@ -18,6 +18,8 @@
 	{@render label("Rust", `${links.githubBase}/paper-client-rs`)}
 
 	<Code lang="rust" numbers code={`
+		use paper_client::PaperClient;
+
 		let client = PaperClient::new("paper://127.0.0.1:3145")?;
 
 		client.set("key", "value", None)?;
@@ -29,6 +31,8 @@
 	{@render label("JavaScript", `${links.githubBase}/paper-client-ts`)}
 
 	<Code lang="javascript" numbers code={`
+		import { PaperClient } from "paper-client";
+
 		const client = await PaperClient.connect("paper://127.0.0.1:3145");
 
 		await client.set("key", "value");
@@ -40,7 +44,9 @@
 	{@render label("Go", `${links.githubBase}/paper-client-go`)}
 
 	<Code lang="go" numbers code={`
-		client, err := Connect("paper://127.0.0.1:3145")
+		import (paperclient "github.com/PaperCache/paper-client-go")
+
+		client, err := paperclient.ClientConnect("paper://127.0.0.1:3145")
 
 		if err != nil {
 			// handle error
@@ -59,6 +65,8 @@
 	{@render label("C", `${links.githubBase}/paper-client-c`)}
 
 	<Code lang="c" numbers code={`
+		#include "paper_client_c/client.h"
+
 		paper_client* client = paper_connect("paper://127.0.0.1:3145");
 
 		paper_set(client, "key", "value", 0);
@@ -72,6 +80,8 @@
 	{@render label("C++", `${links.githubBase}/paper-client-cpp`)}
 
 	<Code lang="cpp" numbers code={`
+		#include <paper_client_cpp/client.hpp>
+
 		paper::client client ("paper://127.0.0.1:3145");
 
 		client.set("key", "value");
@@ -83,6 +93,8 @@
 	{@render label("Python", `${links.githubBase}/paper-client-py`)}
 
 	<Code lang="python" numbers code={`
+		from paper_client.client import PaperClient
+
 		client = PaperClient("paper://127.0.0.1:3145")
 
 		client.set("key", "value")
@@ -94,6 +106,8 @@
 	{@render label("Java", `${links.githubBase}/paper-client-java`)}
 
 	<Code lang="java" numbers code={`
+		import io.papercache.PaperClient;
+
 		PaperClient client = new PaperClient("paper://127.0.0.1:3145");
 
 		client.set("key", "value");
@@ -105,6 +119,8 @@
 	{@render label("C#", `${links.githubBase}/paper-client-cs`)}
 
 	<Code lang="csharp" numbers code={`
+		using PaperClient;
+
 		var client = new PaperClient("paper://127.0.0.1:3145");
 
 		client.Set("key", "value");
@@ -116,6 +132,8 @@
 	{@render label("Kotlin", `${links.githubBase}/paper-client-kt`)}
 
 	<Code lang="kotlin" numbers code={`
+		import io.papercache.PaperClient;
+
 		var client = PaperClient("paper://127.0.0.1:3145")
 
 		client.set("key", "value")
@@ -127,6 +145,8 @@
 	{@render label("PHP", `${links.githubBase}/paper-client-php`)}
 
 	<Code lang="php" numbers code={`
+		include_once(dirname(__FILE__) . "/path/to/paper-client-php");
+
 		$client = new PaperClient("paper://127.0.0.1:3145");
 
 		$client->set("key", "value");
@@ -138,6 +158,8 @@
 	{@render label("Ruby", `${links.githubBase}/paper-client-rb`)}
 
 	<Code lang="ruby" numbers code={`
+		require "paper_client"
+
 		client = PaperClient::Client.new("paper://127.0.0.1:3145")
 
 		client.set("key", "value")
@@ -149,6 +171,8 @@
 	{@render label("Zig", `${links.githubBase}/paper-client-zig`)}
 
 	<Code lang="zig" numbers code={`
+		const PaperClient = @import("/path/to/paper-client-zig/lib.zig").PaperClient;
+
 		var heap = std.heap.ArenaAllocator.init(std.heap.page_allocator);
 		const allocator = heap.allocator();
 
