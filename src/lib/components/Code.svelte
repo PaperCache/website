@@ -9,6 +9,7 @@
 	import cpp from "highlight.js/lib/languages/cpp";
 	import python from "highlight.js/lib/languages/python";
 	import java from "highlight.js/lib/languages/java";
+	import scala from "highlight.js/lib/languages/scala";
 	import csharp from "highlight.js/lib/languages/csharp";
 	import kotlin from "highlight.js/lib/languages/kotlin";
 	import php from "highlight.js/lib/languages/php";
@@ -21,6 +22,7 @@
 	hljs.registerLanguage("cpp", cpp);
 	hljs.registerLanguage("python", python);
 	hljs.registerLanguage("java", java);
+	hljs.registerLanguage("scala", scala);
 	hljs.registerLanguage("csharp", csharp);
 	hljs.registerLanguage("kotlin", kotlin);
 	hljs.registerLanguage("php", php);

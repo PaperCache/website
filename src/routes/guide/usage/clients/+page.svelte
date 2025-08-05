@@ -116,6 +116,19 @@
 </section>
 
 <section>
+	{@render label("Scala", `${links.githubBase}/paper-client-scala`)}
+
+	<Code lang="scala" numbers code={`
+		import io.papercache.PaperClient;
+
+		val client = new PaperClient("paper://127.0.0.1:3145");
+
+		client.set("key", "value");
+		val got = client.get("key");
+	`} />
+</section>
+
+<section>
 	{@render label("C#", `${links.githubBase}/paper-client-cs`)}
 
 	<Code lang="csharp" numbers code={`
