@@ -49,9 +49,10 @@
 		@include app.themed("light") { border-color: #222222; }
 		@include app.themed("night") { border-color: #424242; }
 		padding: 8px;
-		@include app.themed("light") { background-color: #222222; }
-		@include app.themed("night") { background-color: #424242; }
-		color: #ffffff;
+		@include app.themed("light") { background-color: #f8f8f8; }
+		@include app.themed("night") { background-color: #333333; }
+		@include app.themed("light") { color: #222222; }
+		@include app.themed("night") { color: #ffffff; }
 		font-size: 0.8em;
 		line-height: 0.8em;
 		font-family: "Source Code Pro", monospace !important;
