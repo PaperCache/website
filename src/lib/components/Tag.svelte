@@ -65,11 +65,11 @@
 
 	a.tag {
 		@include app.themed("light") { color: #0065f8; }
-		@include app.themed("night") { color: #0560e5; }
+		@include app.themed("night") { color: #2d83ff; }
 
 		&:hover {
 			@include app.themed("light") { border-color: #0065f8; }
-			@include app.themed("night") { border-color: #0560e5; }
+			@include app.themed("night") { border-color: #2d83ff; }
 		}
 
 		:global(svg) {
@@ -77,7 +77,7 @@
 			width: 1em;
 			margin-left: 4px;
 			@include app.themed("light") { fill: #0065f8; }
-			@include app.themed("night") { fill: #0560e5; }
+			@include app.themed("night") { fill: #2d83ff; }
 			flex: 0 0 auto;
 		}
 	}
