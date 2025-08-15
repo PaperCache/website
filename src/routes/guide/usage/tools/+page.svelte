@@ -42,7 +42,7 @@
 <p>To interact with PaperCache, we have created two CLI tools: <Command command="paper-cli" /> and <Command command="paper-benchmark" />.</p>
 
 <h3>paper-cli</h3>
-<p>The paper-cli tool allows you to send any of the described command in the <Tag href="{base}/guide/usage/wire">wire protocol</Tag> from the command line. This is useful for monitoring the cache (e.g., checking the statistics at runtime, or changing the eviction policy manually).</p>
+<p>The paper-cli tool allows you to send any of the described command in the <Tag href="{base}/guide/usage/wire">wire protocol</Tag> from the command line. This is useful for monitoring the cache (e.g., checking the status at runtime, or changing the eviction policy manually).</p>
 
 <h4>Installation</h4>
 <Command command="cargo install paper-cli" />
