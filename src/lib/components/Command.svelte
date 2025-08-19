@@ -46,6 +46,7 @@
 		width: 16px;
 		max-width: 100%;
 		border: 1px solid;
+		outline: none;
 		@include app.themed("light") { border-color: #222222; }
 		@include app.themed("night") { border-color: #424242; }
 		padding: 8px;
