@@ -48,6 +48,7 @@
 		display: inline-flex;
 		align-items: center;
 		vertical-align: top;
+		outline: none;
 
 		span {
 			font-size: inherit;
@@ -67,7 +68,7 @@
 		@include app.themed("light") { color: #0065f8; }
 		@include app.themed("night") { color: #2d83ff; }
 
-		&:hover {
+		&:hover, &:focus {
 			@include app.themed("light") { border-color: #0065f8; }
 			@include app.themed("night") { border-color: #2d83ff; }
 		}

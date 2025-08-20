@@ -58,5 +58,10 @@
 		line-height: 0.8em;
 		font-family: "Source Code Pro", monospace !important;
 		transition: width 0.25s ease-out;
+
+		&:focus {
+			@include app.themed("light") { border-color: #000000; }
+			@include app.themed("night") { border-color: #ffffff; }
+		}
 	}
 </style>
