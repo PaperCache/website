@@ -27,7 +27,7 @@
 				stack: HashList<HashedKey, NoHasher>,
 			}
 		`} />
-		<p>We disable hashing in the <Tag href="https://github.com/KiaShakiba/kwik/blob/main/src/collections/hash_list.rs">HashList</Tag> as the keys are pre-hashed by the cache.</p>
+		<p>We disable hashing in the <Tag href="https://docs.rs/kwik/latest/kwik/collections/hash_list/struct.HashList.html">HashList</Tag> as the keys are pre-hashed by the cache.</p>
 	</li>
 
 	<li>
