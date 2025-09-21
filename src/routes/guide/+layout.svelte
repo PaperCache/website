@@ -1,6 +1,8 @@
 <script lang="ts">
+	import { onMount } from "svelte";
 	import { base } from "$app/paths";
 	import { page } from "$app/state";
+	import { afterNavigate } from "$app/navigation";
 	import CircleArrowSvg from "$lib/svgs/CircleArrowSvg.svelte";
 	import guides from "$lib/data/guides.json";
 
@@ -12,6 +14,12 @@
 			.flatMap(s => s.modules)
 			.find(g => page.route.id?.endsWith(g.slug))?.title
 	);
+
+	let contentContainer: HTMLDivElement;
+
+	afterNavigate(() => {
+		contentContainer.scrollTo(0, 0);
+	});
 
 	function toggleMobileNav() {
 		mobileNavOpen = !mobileNavOpen;
@@ -47,7 +55,7 @@
 		</ul>
 	</nav>
 
-	<div>
+	<div bind:this={contentContainer}>
 		{#if moduleTitle}
 			<h2>{moduleTitle}</h2>
 		{/if}
